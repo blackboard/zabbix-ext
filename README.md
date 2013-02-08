@@ -1,6 +1,7 @@
 Zabbix templates for Blackboard Learn
 =================================
 
-Documentation can be found on EduGarage:
+This is a public repo.
 
+Documentation found on EduGarage:
 http://www.edugarage.com/display/BBDN/Monitoring+with+Zabbix
