@@ -1,0 +1,15 @@
+#!/usr/bin/expect
+
+set timeout 600
+
+set src_path        [lindex $argv 0]
+set dst_path        [lindex $argv 1]
+set dst_host        [lindex $argv 2]
+set user            [lindex $argv 3]
+set password        [lindex $argv 4]
+
+spawn scp -r -oStrictHostKeyChecking=no -oCheckHostIP=no $src_path $user@$dst_host:$dst_path
+
+expect "password"
+send "$password\r"
+expect "]#"

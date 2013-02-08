@@ -1,0 +1,24 @@
+#!/usr/bin/expect
+
+set timeout 900
+
+set cmd         [lindex $argv 0]
+set dest_host   [lindex $argv 1]
+set user        [lindex $argv 2]
+set password    [lindex $argv 3]
+
+spawn ssh -oStrictHostKeyChecking=no -oCheckHostIP=no $user@$dest_host
+
+expect "password"
+send "$password\r"
+# expect "]$"
+# send "root\r"
+# expect "Reason"
+# send "deploy zabbix agent\r"
+# expect "password"
+# send "$password\r"
+expect "]#"
+send "$cmd\r"
+expect "]#"
+send "echo RSTATUS:$?\r"
+expect -re "RSTATUS:(\[0-9\]+)" {exit $expect_out(1,string)}
