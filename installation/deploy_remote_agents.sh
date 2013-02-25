@@ -59,8 +59,8 @@ copy_files()
   password=$3
   src_path=`dirname "$0"`/linux
   
-  echo "remove installation files if there is"
-  tools/invoke_remote_cmd.exp "rm -rf ${REMOTE_TMP_DIR}/linux" $remote_host $user $password
+  # echo "remove installation files if there is"
+  # tools/invoke_remote_cmd.exp "rm -rf ${REMOTE_TMP_DIR}/linux" $remote_host $user $password
   
   echo "copy files from $src_path to $remote_host:$REMOTE_TMP_DIR for zabbix"
   tools/copy_files.exp $src_path $REMOTE_TMP_DIR $remote_host $user $password
