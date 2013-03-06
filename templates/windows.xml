@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2013-02-05T03:47:36Z</date>
+    <date>2013-03-06T06:19:07Z</date>
     <groups>
         <group>
             <name>Templates Blackboard Learn</name>
@@ -35,7 +35,7 @@
             </applications>
             <items>
                 <item>
-                    <name>CPU Count</name>
+                    <name>Windows: CPU Count</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -74,7 +74,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Free memory</name>
+                    <name>Windows: Free Memory</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -92,7 +92,7 @@
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
                     <snmpv3_authpassphrase/>
                     <snmpv3_privpassphrase/>
-                    <formula>0</formula>
+                    <formula>1</formula>
                     <delay_flex/>
                     <params/>
                     <ipmi_sensor/>
@@ -113,7 +113,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Processor load</name>
+                    <name>Windows: Processor Load</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -131,7 +131,7 @@
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
                     <snmpv3_authpassphrase/>
                     <snmpv3_privpassphrase/>
-                    <formula>0</formula>
+                    <formula>1</formula>
                     <delay_flex/>
                     <params/>
                     <ipmi_sensor/>
@@ -152,7 +152,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Reading Bytes per Second</name>
+                    <name>Windows: Read Bytes per Second</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -191,7 +191,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Reading Operations per Second</name>
+                    <name>Windows: Read Operations per Second</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -230,7 +230,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Reading Time per Read</name>
+                    <name>Windows: Read Time per Read</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>1</multiplier>
@@ -269,7 +269,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Total memory</name>
+                    <name>Windows: Total Memory</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -427,7 +427,7 @@
             </items>
             <discovery_rules>
                 <discovery_rule>
-                    <name>Mounted File System Dicovery</name>
+                    <name>Windows: Mounted File System Dicovery</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -453,7 +453,7 @@
                     <description/>
                     <item_prototypes>
                         <item_prototype>
-                            <name>Free disk space on $1</name>
+                            <name>Windows: Free Disk Space on $1</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
@@ -492,7 +492,7 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>Free disk space on $1(percentage)</name>
+                            <name>Windows: Free Disk Space on $1(percentage)</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
@@ -531,7 +531,7 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>Total disk space on $1</name>
+                            <name>Windows: Total Disk Space on $1</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
@@ -631,7 +631,7 @@
                     </graph_prototypes>
                 </discovery_rule>
                 <discovery_rule>
-                    <name>Network Interface Discovery</name>
+                    <name>Windows: Network Interface Discovery</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -657,7 +657,7 @@
                     <description/>
                     <item_prototypes>
                         <item_prototype>
-                            <name>Network Reading on $1</name>
+                            <name>Linux: Network Read on $1</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
@@ -696,7 +696,7 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>Network Writing on $1</name>
+                            <name>Linux: Network Write on $1</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
@@ -796,46 +796,6 @@
                             <resourcetype>0</resourcetype>
                             <width>500</width>
                             <height>100</height>
-                            <x>1</x>
-                            <y>0</y>
-                            <colspan>1</colspan>
-                            <rowspan>1</rowspan>
-                            <elements>0</elements>
-                            <valign>0</valign>
-                            <halign>0</halign>
-                            <style>0</style>
-                            <url/>
-                            <dynamic>0</dynamic>
-                            <sort_triggers>0</sort_triggers>
-                            <resource>
-                                <name>System - Processor Load with 95th%</name>
-                                <host>Template_Learn_Windows</host>
-                            </resource>
-                        </screen_item>
-                        <screen_item>
-                            <resourcetype>0</resourcetype>
-                            <width>500</width>
-                            <height>100</height>
-                            <x>1</x>
-                            <y>1</y>
-                            <colspan>1</colspan>
-                            <rowspan>1</rowspan>
-                            <elements>0</elements>
-                            <valign>0</valign>
-                            <halign>0</halign>
-                            <style>0</style>
-                            <url/>
-                            <dynamic>0</dynamic>
-                            <sort_triggers>0</sort_triggers>
-                            <resource>
-                                <name>System - IO</name>
-                                <host>Template_Learn_Windows</host>
-                            </resource>
-                        </screen_item>
-                        <screen_item>
-                            <resourcetype>0</resourcetype>
-                            <width>500</width>
-                            <height>100</height>
                             <x>0</x>
                             <y>1</y>
                             <colspan>1</colspan>
@@ -856,6 +816,26 @@
                             <resourcetype>0</resourcetype>
                             <width>500</width>
                             <height>100</height>
+                            <x>1</x>
+                            <y>0</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>0</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <style>0</style>
+                            <url/>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <resource>
+                                <name>System - Processor Load with 95th%</name>
+                                <host>Template_Learn_Windows</host>
+                            </resource>
+                        </screen_item>
+                        <screen_item>
+                            <resourcetype>0</resourcetype>
+                            <width>500</width>
+                            <height>100</height>
                             <x>0</x>
                             <y>0</y>
                             <colspan>1</colspan>
@@ -869,6 +849,26 @@
                             <sort_triggers>0</sort_triggers>
                             <resource>
                                 <name>System - Processor Load</name>
+                                <host>Template_Learn_Windows</host>
+                            </resource>
+                        </screen_item>
+                        <screen_item>
+                            <resourcetype>0</resourcetype>
+                            <width>500</width>
+                            <height>100</height>
+                            <x>1</x>
+                            <y>1</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>0</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <style>0</style>
+                            <url/>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <resource>
+                                <name>System - IO</name>
                                 <host>Template_Learn_Windows</host>
                             </resource>
                         </screen_item>

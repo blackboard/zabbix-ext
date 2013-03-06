@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2013-02-05T03:46:58Z</date>
+    <date>2013-03-06T06:17:40Z</date>
     <groups>
         <group>
             <name>Templates Blackboard Learn</name>
@@ -29,7 +29,7 @@
             </applications>
             <items>
                 <item>
-                    <name>CMS Collector GC Count in Past Minute</name>
+                    <name>Java: CMS Collector GC Count in Past Minute</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -68,7 +68,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>CMS Collector GC Time in Past Minute</name>
+                    <name>Java: CMS Collector GC Time in Past Minute</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -107,7 +107,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Eden Space Max</name>
+                    <name>Java: Eden Space Max</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -146,7 +146,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Eden Space Used</name>
+                    <name>Java: Eden Space Used</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -185,7 +185,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Heap Space Committed</name>
+                    <name>Java: Heap Space Committed</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -224,7 +224,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Heap Space Max</name>
+                    <name>Java: Heap Space Max</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -263,7 +263,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Heap Space Used</name>
+                    <name>Java: Heap Space Used</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -302,7 +302,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Max Non-heap Space</name>
+                    <name>Java: Max Non-heap Space</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -341,7 +341,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Non-heap Space Used</name>
+                    <name>Java: Non-heap Space Used</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -380,7 +380,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>OutOfMemoryError</name>
+                    <name>Java: OutOfMemoryError</name>
                     <type>7</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -419,7 +419,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>ParNew Collector GC Count in Past Minute</name>
+                    <name>Java: ParNew Collector GC Count in Past Minute</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -458,7 +458,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>ParNew Collector GC Time in Past Minute</name>
+                    <name>Java: ParNew Collector GC Time in Past Minute</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -497,7 +497,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>StackOverflowError</name>
+                    <name>Java: StackOverflowError</name>
                     <type>7</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -536,7 +536,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Survivor Space Max</name>
+                    <name>Java: Survivor Space Max</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -575,7 +575,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Survivor Space Used</name>
+                    <name>Java: Survivor Space Used</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -614,7 +614,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Tenured Space Max</name>
+                    <name>Java: Tenured Space Max</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -653,7 +653,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Tenured Space Used</name>
+                    <name>Java: Tenured Space Used</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -692,7 +692,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Thread Count</name>
+                    <name>Java: Thread Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2013-02-05T03:45:51Z</date>
+    <date>2013-03-06T06:15:51Z</date>
     <groups>
         <group>
             <name>Templates Blackboard Learn</name>
@@ -23,7 +23,7 @@
             </applications>
             <items>
                 <item>
-                    <name>bb-flatfile-processing Consumer Count</name>
+                    <name>ActiveMQ: bb-flatfile-processing Consumer Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -62,7 +62,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>bb-flatfile-processing Dequeue Count</name>
+                    <name>ActiveMQ: bb-flatfile-processing Dequeue Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -101,7 +101,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>bb-flatfile-processing Enqueue Count</name>
+                    <name>ActiveMQ: bb-flatfile-processing Enqueue Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -140,7 +140,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>bb-flatfile-processing Producer Count</name>
+                    <name>ActiveMQ: bb-flatfile-processing Producer Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -179,7 +179,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>bb-ims-xml-xml-processing Consumer Count</name>
+                    <name>ActiveMQ: bb-ims-xml-xml-processing Consumer Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -218,7 +218,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>bb-ims-xml-xml-processing Dequeue Count</name>
+                    <name>ActiveMQ: bb-ims-xml-xml-processing Dequeue Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -257,7 +257,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>bb-ims-xml-xml-processing Enqueue Count</name>
+                    <name>ActiveMQ: bb-ims-xml-xml-processing Enqueue Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -296,7 +296,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>bb-ims-xml-xml-processing Producer Count</name>
+                    <name>ActiveMQ: bb-ims-xml-xml-processing Producer Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -335,7 +335,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>bb-lis-batch-processing Consumer Count</name>
+                    <name>ActiveMQ: bb-lis-batch-processing Consumer Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -374,7 +374,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>bb-lis-batch-processing Dequeue Count</name>
+                    <name>ActiveMQ: bb-lis-batch-processing Dequeue Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -413,7 +413,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>bb-lis-batch-processing Enqueue Count</name>
+                    <name>ActiveMQ: bb-lis-batch-processing Enqueue Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -452,7 +452,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>bb-lis-batch-processing Producer Count</name>
+                    <name>ActiveMQ: bb-lis-batch-processing Producer Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -491,7 +491,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>bb-ss-xml-processing Consumer Count</name>
+                    <name>ActiveMQ: bb-ss-xml-processing Consumer Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -530,7 +530,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>bb-ss-xml-processing Dequeue Count</name>
+                    <name>ActiveMQ: bb-ss-xml-processing Dequeue Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -569,7 +569,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>bb-ss-xml-processing Enqueue Count</name>
+                    <name>ActiveMQ: bb-ss-xml-processing Enqueue Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -608,7 +608,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>bb-ss-xml-processing Producer Count</name>
+                    <name>ActiveMQ: bb-ss-xml-processing Producer Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -647,7 +647,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Broker Consumer Count</name>
+                    <name>ActiveMQ: Broker Consumer Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -686,7 +686,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Broker Dequeue Count</name>
+                    <name>ActiveMQ: Broker Dequeue Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -725,7 +725,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Broker Enqueue Count</name>
+                    <name>ActiveMQ: Broker Enqueue Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -764,7 +764,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Broker Memory Usage</name>
+                    <name>ActiveMQ: Broker Memory Usage</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -803,7 +803,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Broker Message Count</name>
+                    <name>ActiveMQ: Broker Message Count</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
