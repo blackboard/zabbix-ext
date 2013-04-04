@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2013-02-08T03:47:04Z</date>
+    <date>2013-03-29T11:29:58Z</date>
     <groups>
         <group>
             <name>Templates Blackboard Learn</name>
@@ -23,46 +23,7 @@
             </applications>
             <items>
                 <item>
-                    <name>Active Authenticated Sessions by Unique Users (Last 60min)</name>
-                    <type>16</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>jmx[&quot;learn:name=stats&quot;,&quot;ActiveAuthenticatedSessions&quot;]</key>
-                    <delay>300</delay>
-                    <history>7</history>
-                    <trends>1800</trends>
-                    <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username>{$JMX_USERNAME}</username>
-                    <password>{$JMX_PASSWORD}</password>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>Stats</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                </item>
-                <item>
-                    <name>Active Sessions (Last 60min)</name>
+                    <name>Application: Active Sessions (Last 60min)</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -101,7 +62,46 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Assessment Attempts in Past Hour</name>
+                    <name>Application: Active Unique Auth Sessions (Last 60min)</name>
+                    <type>16</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>jmx[&quot;learn:name=stats&quot;,&quot;ActiveAuthenticatedSessions&quot;]</key>
+                    <delay>300</delay>
+                    <history>7</history>
+                    <trends>1800</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username>{$JMX_USERNAME}</username>
+                    <password>{$JMX_PASSWORD}</password>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Stats</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Application: Assessment Attempts in Past Hour</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -140,7 +140,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Available Course</name>
+                    <name>Application: Available Course</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -179,7 +179,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Available User</name>
+                    <name>Application: Available User</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -218,7 +218,85 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Unavailable Course</name>
+                    <name>Application: Guest Excluded Inactive Sessions</name>
+                    <type>16</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>jmx[&quot;learn:name=stats&quot;,&quot;InactiveAuthenticatedSessions&quot;]</key>
+                    <delay>300</delay>
+                    <history>7</history>
+                    <trends>1800</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username>{$JMX_USERNAME}</username>
+                    <password>{$JMX_PASSWORD}</password>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Stats</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Application: Inactive Sessions</name>
+                    <type>16</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>jmx[&quot;learn:name=stats&quot;,&quot;InactiveSessions&quot;]</key>
+                    <delay>300</delay>
+                    <history>7</history>
+                    <trends>1800</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username>{$JMX_USERNAME}</username>
+                    <password>{$JMX_PASSWORD}</password>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Stats</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Application: Unavailable Course</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -257,13 +335,52 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Unavailable User</name>
+                    <name>Application: Unavailable User</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
                     <key>jmx[&quot;learn:name=stats&quot;,&quot;UnavailableUsers&quot;]</key>
                     <delay>3600</delay>
+                    <history>7</history>
+                    <trends>1800</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username>{$JMX_USERNAME}</username>
+                    <password>{$JMX_PASSWORD}</password>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Stats</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Application: User Activities Per Hour</name>
+                    <type>16</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>jmx[&quot;learn:name=stats&quot;,&quot;UserActivitiesPerHour&quot;]</key>
+                    <delay>300</delay>
                     <history>7</history>
                     <trends>1800</trends>
                     <status>0</status>
@@ -538,18 +655,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>0</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>009900</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>7</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template Learn Application Single Agent</host>
-                        <key>jmx[&quot;learn:name=stats&quot;,&quot;ActiveSessions&quot;]</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>2</sortorder>
                     <drawtype>0</drawtype>
                     <color>0000C8</color>
@@ -559,6 +664,18 @@
                     <item>
                         <host>Template Learn Application Single Agent</host>
                         <key>jmx[&quot;learn:name=stats&quot;,&quot;ActiveAuthenticatedSessions&quot;]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>009900</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>7</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template Learn Application Single Agent</host>
+                        <key>jmx[&quot;learn:name=stats&quot;,&quot;ActiveSessions&quot;]</key>
                     </item>
                 </graph_item>
             </graph_items>

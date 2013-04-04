@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2013-02-05T03:46:45Z</date>
+    <date>2013-03-06T06:17:26Z</date>
     <groups>
         <group>
             <name>Templates Blackboard Learn</name>
@@ -6666,26 +6666,6 @@
                             <resourcetype>0</resourcetype>
                             <width>500</width>
                             <height>100</height>
-                            <x>1</x>
-                            <y>15</y>
-                            <colspan>1</colspan>
-                            <rowspan>1</rowspan>
-                            <elements>0</elements>
-                            <valign>0</valign>
-                            <halign>0</halign>
-                            <style>0</style>
-                            <url/>
-                            <dynamic>0</dynamic>
-                            <sort_triggers>0</sort_triggers>
-                            <resource>
-                                <name>Cache - XythosPrincipal</name>
-                                <host>Template Learn Cache</host>
-                            </resource>
-                        </screen_item>
-                        <screen_item>
-                            <resourcetype>0</resourcetype>
-                            <width>500</width>
-                            <height>100</height>
                             <x>0</x>
                             <y>13</y>
                             <colspan>1</colspan>
@@ -6779,6 +6759,26 @@
                             <sort_triggers>0</sort_triggers>
                             <resource>
                                 <name>Cache - QtiResult</name>
+                                <host>Template Learn Cache</host>
+                            </resource>
+                        </screen_item>
+                        <screen_item>
+                            <resourcetype>0</resourcetype>
+                            <width>500</width>
+                            <height>100</height>
+                            <x>1</x>
+                            <y>15</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>0</elements>
+                            <valign>0</valign>
+                            <halign>0</halign>
+                            <style>0</style>
+                            <url/>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <resource>
+                                <name>Cache - XythosPrincipal</name>
                                 <host>Template Learn Cache</host>
                             </resource>
                         </screen_item>
@@ -8007,6 +8007,30 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
+                    <sortorder>1</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>DD0000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>7</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template Learn Cache</host>
+                        <key>jmx[&quot;net.sf.ehcache:type=CacheStatistics,CacheManager=CacheEhImpl,name=blogIndexes&quot;,&quot;CacheMisses&quot;]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>3</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>00CCCC</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>7</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template Learn Cache</host>
+                        <key>jmx[&quot;net.sf.ehcache:type=CacheStatistics,CacheManager=CacheEhImpl,name=blogIndexes&quot;,&quot;InMemoryHits&quot;]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
                     <sortorder>2</sortorder>
                     <drawtype>0</drawtype>
                     <color>DDDD00</color>
@@ -8040,30 +8064,6 @@
                     <item>
                         <host>Template Learn Cache</host>
                         <key>jmx[&quot;net.sf.ehcache:type=CacheStatistics,CacheManager=CacheEhImpl,name=blogIndexes&quot;,&quot;OnDiskHits&quot;]</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>1</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>DD0000</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>7</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template Learn Cache</host>
-                        <key>jmx[&quot;net.sf.ehcache:type=CacheStatistics,CacheManager=CacheEhImpl,name=blogIndexes&quot;,&quot;CacheMisses&quot;]</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>3</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>00CCCC</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>7</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template Learn Cache</host>
-                        <key>jmx[&quot;net.sf.ehcache:type=CacheStatistics,CacheManager=CacheEhImpl,name=blogIndexes&quot;,&quot;InMemoryHits&quot;]</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -8727,6 +8727,30 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
+                    <sortorder>2</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>DDDD00</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>7</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template Learn Cache</host>
+                        <key>jmx[&quot;net.sf.ehcache:type=CacheStatistics,CacheManager=CacheEhImpl,name=courseTermCache&quot;,&quot;CacheHits&quot;]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>3</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>00CCCC</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>7</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template Learn Cache</host>
+                        <key>jmx[&quot;net.sf.ehcache:type=CacheStatistics,CacheManager=CacheEhImpl,name=courseTermCache&quot;,&quot;InMemoryHits&quot;]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
                     <sortorder>4</sortorder>
                     <drawtype>0</drawtype>
                     <color>00CC00</color>
@@ -8760,30 +8784,6 @@
                     <item>
                         <host>Template Learn Cache</host>
                         <key>jmx[&quot;net.sf.ehcache:type=CacheStatistics,CacheManager=CacheEhImpl,name=courseTermCache&quot;,&quot;CacheMisses&quot;]</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>2</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>DDDD00</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>7</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template Learn Cache</host>
-                        <key>jmx[&quot;net.sf.ehcache:type=CacheStatistics,CacheManager=CacheEhImpl,name=courseTermCache&quot;,&quot;CacheHits&quot;]</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>3</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>00CCCC</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>7</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template Learn Cache</host>
-                        <key>jmx[&quot;net.sf.ehcache:type=CacheStatistics,CacheManager=CacheEhImpl,name=courseTermCache&quot;,&quot;InMemoryHits&quot;]</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -9527,18 +9527,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>2</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>CCCC00</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>7</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template Learn Cache</host>
-                        <key>jmx[&quot;net.sf.ehcache:type=CacheStatistics,CacheManager=CacheEhImpl,name=QtiCanvasItemCache&quot;,&quot;CacheHits&quot;]</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
                     <color>DD0000</color>
@@ -9572,6 +9560,18 @@
                     <item>
                         <host>Template Learn Cache</host>
                         <key>jmx[&quot;net.sf.ehcache:type=CacheStatistics,CacheManager=CacheEhImpl,name=QtiCanvasItemCache&quot;,&quot;InMemoryHits&quot;]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>CCCC00</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>7</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template Learn Cache</host>
+                        <key>jmx[&quot;net.sf.ehcache:type=CacheStatistics,CacheManager=CacheEhImpl,name=QtiCanvasItemCache&quot;,&quot;CacheHits&quot;]</key>
                     </item>
                 </graph_item>
                 <graph_item>

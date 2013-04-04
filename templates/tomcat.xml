@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2013-02-05T03:47:29Z</date>
+    <date>2013-03-06T06:18:51Z</date>
     <groups>
         <group>
             <name>Templates Blackboard Learn</name>
@@ -26,7 +26,7 @@
             </applications>
             <items>
                 <item>
-                    <name>Average Processing Time</name>
+                    <name>Tomcat: Avg Processing Time</name>
                     <type>15</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -65,7 +65,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Busy Threads on Port 8009</name>
+                    <name>Tomcat: Busy Threads on Port 8009</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -104,7 +104,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Current Threads on Port 8009</name>
+                    <name>Tomcat: Current Threads on Port 8009</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -143,46 +143,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Errors</name>
-                    <type>16</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>jmx[&quot;Catalina:type=GlobalRequestProcessor,name=jk-8009&quot;,&quot;errorCount&quot;]</key>
-                    <delay>60</delay>
-                    <history>7</history>
-                    <trends>180</trends>
-                    <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units>/Min</units>
-                    <delta>2</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username>{$JMX_USERNAME}</username>
-                    <password>{$JMX_PASSWORD}</password>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>Tomcat Processor</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                </item>
-                <item>
-                    <name>Max Threads on Port 8009</name>
+                    <name>Tomcat: Max Threads on Port 8009</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -221,7 +182,46 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Request Processing Time</name>
+                    <name>Tomcat: Request Errors</name>
+                    <type>16</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>jmx[&quot;Catalina:type=GlobalRequestProcessor,name=jk-8009&quot;,&quot;errorCount&quot;]</key>
+                    <delay>60</delay>
+                    <history>7</history>
+                    <trends>180</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units>/Min</units>
+                    <delta>2</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username>{$JMX_USERNAME}</username>
+                    <password>{$JMX_PASSWORD}</password>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Tomcat Processor</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Tomcat: Request Processing Time</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -260,7 +260,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Requests</name>
+                    <name>Tomcat: Requests</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>

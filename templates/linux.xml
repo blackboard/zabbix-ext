@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2013-02-05T03:47:08Z</date>
+    <date>2013-03-06T06:20:50Z</date>
     <groups>
         <group>
             <name>Templates Blackboard Learn</name>
@@ -35,7 +35,7 @@
             </applications>
             <items>
                 <item>
-                    <name>Buffers Memory</name>
+                    <name>Linux: Buffers Memory</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -74,7 +74,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Bytes Reading / sec on $1</name>
+                    <name>Linux: Bytes Read per Sec on $1</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>1</multiplier>
@@ -113,7 +113,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Bytes Writing / sec on $1</name>
+                    <name>Linux: Bytes Write per Sec on $1</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>1</multiplier>
@@ -152,7 +152,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Cached Memory</name>
+                    <name>Linux: Cached Memory</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -191,7 +191,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>CPU Count</name>
+                    <name>Linux: CPU Count</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -230,7 +230,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>CPU idle time (avg1)</name>
+                    <name>Linux: CPU idle time (avg1)</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -269,7 +269,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>CPU iowait time (avg1)</name>
+                    <name>Linux: CPU iowait time (avg1)</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -308,7 +308,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>CPU nice time (avg1)</name>
+                    <name>Linux: CPU nice time (avg1)</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -347,7 +347,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>CPU steal time (avg1)</name>
+                    <name>Linux: CPU steal time (avg1)</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -386,7 +386,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>CPU system time (avg1)</name>
+                    <name>Linux: CPU system time (avg1)</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -425,7 +425,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>CPU user time (avg1)</name>
+                    <name>Linux: CPU user time (avg1)</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -464,7 +464,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Free Memory Size</name>
+                    <name>Linux: Free Memory Size</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -503,7 +503,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Milliseconds Reading / sec on $1</name>
+                    <name>Linux: Milliseconds Reading per Sec on $1</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>1</multiplier>
@@ -542,7 +542,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Milliseconds Writing / sec on $1</name>
+                    <name>Linux: Milliseconds Write per Sec on $1</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>1</multiplier>
@@ -581,7 +581,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Operations Reading / sec on $1</name>
+                    <name>Linux: Operations Read per Sec on $1</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -620,7 +620,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Operations Writing / sec on $1</name>
+                    <name>Linux: Operations Write per Sec on $1</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -659,7 +659,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Process Max File Descriptors</name>
+                    <name>Linux: Process Max File Descriptors</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -698,7 +698,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Processor Load / min</name>
+                    <name>Linux: Processor Load per Min</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -737,7 +737,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>System Max File Descriptors</name>
+                    <name>Linux: System Max File Descriptors</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -776,7 +776,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Total Memory Size</name>
+                    <name>Linux: Total Memory Size</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -815,7 +815,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Used File Descriptors</name>
+                    <name>Linux: Used File Descriptors</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -856,7 +856,7 @@
             </items>
             <discovery_rules>
                 <discovery_rule>
-                    <name>Mounted File System Dicovery</name>
+                    <name>Linux: Mounted File System Dicovery</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -882,7 +882,7 @@
                     <description/>
                     <item_prototypes>
                         <item_prototype>
-                            <name>Free disk space on $1</name>
+                            <name>Linux: Free Disk Space on $1</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
@@ -921,7 +921,7 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>Free disk space on $1(percentage)</name>
+                            <name>Linux: Free Disk Space on $1(percentage)</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
@@ -960,7 +960,7 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>Total disk space on $1</name>
+                            <name>Linux: Total Disk Space on $1</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
@@ -1060,7 +1060,7 @@
                     </graph_prototypes>
                 </discovery_rule>
                 <discovery_rule>
-                    <name>Network Interface Discovery</name>
+                    <name>Linux: Network Interface Discovery</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -1086,7 +1086,7 @@
                     <description/>
                     <item_prototypes>
                         <item_prototype>
-                            <name>Network Reading on $1</name>
+                            <name>Linux: Network Read on $1</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
@@ -1125,7 +1125,7 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>Network Writing on $1</name>
+                            <name>Linux: Network Write on $1</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
