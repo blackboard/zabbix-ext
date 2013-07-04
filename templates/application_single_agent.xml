@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2013-03-29T11:29:58Z</date>
+    <date>2013-07-04T07:20:08Z</date>
     <groups>
         <group>
             <name>Templates Blackboard Learn</name>
@@ -28,7 +28,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>jmx[&quot;learn:name=stats&quot;,&quot;ActiveSessions&quot;]</key>
+                    <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;ActiveSessions&quot;]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>1800</trends>
@@ -67,7 +67,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>jmx[&quot;learn:name=stats&quot;,&quot;ActiveAuthenticatedSessions&quot;]</key>
+                    <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;ActiveAuthenticatedSessions&quot;]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>1800</trends>
@@ -106,7 +106,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>jmx[&quot;learn:name=stats&quot;,&quot;AssessmentAttemptsInPastHour&quot;]</key>
+                    <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;AssessmentAttemptsInPastHour&quot;]</key>
                     <delay>3600</delay>
                     <history>7</history>
                     <trends>1800</trends>
@@ -145,7 +145,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>jmx[&quot;learn:name=stats&quot;,&quot;AvailableCourses&quot;]</key>
+                    <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;AvailableCourses&quot;]</key>
                     <delay>3600</delay>
                     <history>7</history>
                     <trends>1800</trends>
@@ -184,7 +184,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>jmx[&quot;learn:name=stats&quot;,&quot;AvailableUsers&quot;]</key>
+                    <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;AvailableUsers&quot;]</key>
                     <delay>3600</delay>
                     <history>7</history>
                     <trends>1800</trends>
@@ -223,7 +223,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>jmx[&quot;learn:name=stats&quot;,&quot;InactiveAuthenticatedSessions&quot;]</key>
+                    <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;InactiveAuthenticatedSessions&quot;]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>1800</trends>
@@ -262,7 +262,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>jmx[&quot;learn:name=stats&quot;,&quot;InactiveSessions&quot;]</key>
+                    <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;InactiveSessions&quot;]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>1800</trends>
@@ -301,7 +301,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>jmx[&quot;learn:name=stats&quot;,&quot;UnavailableCourses&quot;]</key>
+                    <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;UnavailableCourses&quot;]</key>
                     <delay>3600</delay>
                     <history>7</history>
                     <trends>1800</trends>
@@ -340,7 +340,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>jmx[&quot;learn:name=stats&quot;,&quot;UnavailableUsers&quot;]</key>
+                    <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;UnavailableUsers&quot;]</key>
                     <delay>3600</delay>
                     <history>7</history>
                     <trends>1800</trends>
@@ -379,7 +379,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>jmx[&quot;learn:name=stats&quot;,&quot;UserActivitiesPerHour&quot;]</key>
+                    <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;UserActivitiesPerHour&quot;]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>1800</trends>
@@ -555,7 +555,7 @@
                     <type>0</type>
                     <item>
                         <host>Template Learn Application Single Agent</host>
-                        <key>jmx[&quot;learn:name=stats&quot;,&quot;AssessmentAttemptsInPastHour&quot;]</key>
+                        <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;AssessmentAttemptsInPastHour&quot;]</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -587,7 +587,7 @@
                     <type>0</type>
                     <item>
                         <host>Template Learn Application Single Agent</host>
-                        <key>jmx[&quot;learn:name=stats&quot;,&quot;ActiveAuthenticatedSessions&quot;]</key>
+                        <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;ActiveAuthenticatedSessions&quot;]</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -611,18 +611,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>0</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>009900</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>7</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template Learn Application Single Agent</host>
-                        <key>jmx[&quot;learn:name=stats&quot;,&quot;AvailableCourses&quot;]</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
                     <color>DD0000</color>
@@ -631,7 +619,19 @@
                     <type>0</type>
                     <item>
                         <host>Template Learn Application Single Agent</host>
-                        <key>jmx[&quot;learn:name=stats&quot;,&quot;UnavailableCourses&quot;]</key>
+                        <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;UnavailableCourses&quot;]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>009900</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>7</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template Learn Application Single Agent</host>
+                        <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;AvailableCourses&quot;]</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -655,18 +655,6 @@
             <ymax_item_1>0</ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>2</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>0000C8</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>7</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template Learn Application Single Agent</host>
-                        <key>jmx[&quot;learn:name=stats&quot;,&quot;ActiveAuthenticatedSessions&quot;]</key>
-                    </item>
-                </graph_item>
-                <graph_item>
                     <sortorder>0</sortorder>
                     <drawtype>0</drawtype>
                     <color>009900</color>
@@ -675,7 +663,19 @@
                     <type>0</type>
                     <item>
                         <host>Template Learn Application Single Agent</host>
-                        <key>jmx[&quot;learn:name=stats&quot;,&quot;ActiveSessions&quot;]</key>
+                        <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;ActiveSessions&quot;]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>0000C8</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>7</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template Learn Application Single Agent</host>
+                        <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;ActiveAuthenticatedSessions&quot;]</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -707,7 +707,7 @@
                     <type>0</type>
                     <item>
                         <host>Template Learn Application Single Agent</host>
-                        <key>jmx[&quot;learn:name=stats&quot;,&quot;UnavailableUsers&quot;]</key>
+                        <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;UnavailableUsers&quot;]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -719,7 +719,7 @@
                     <type>0</type>
                     <item>
                         <host>Template Learn Application Single Agent</host>
-                        <key>jmx[&quot;learn:name=stats&quot;,&quot;AvailableUsers&quot;]</key>
+                        <key>jmx[&quot;blackboard.learn:name=stats&quot;,&quot;AvailableUsers&quot;]</key>
                     </item>
                 </graph_item>
             </graph_items>
