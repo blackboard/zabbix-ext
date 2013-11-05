@@ -86,6 +86,9 @@ then
   exit 1;
 fi
 
+## Housekeeper cleanup
+$BASE_DIR/housekeeper_cleanup.sh
+
 grep -i 'ARCH:' $ARCH_DATA_FILE > /dev/null
 if [ $? -ne 0 ] 
 then
@@ -96,9 +99,6 @@ else
 ## Archive the stale partition data
   archive_table
 fi
-
-## Housekeeper cleanup
-$BASE_DIR/housekeeper_cleanup.sh
 
 ## Backup the database
 $BASE_DIR/zabbix_backup.sh
