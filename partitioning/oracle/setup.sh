@@ -1,0 +1,5 @@
+#!/bin/sh
+
+. env.sh
+
+$SQLPLUS $DB_USER/$DB_PASS @$SCRIPT_ZABBIX_MAINTAINCE
