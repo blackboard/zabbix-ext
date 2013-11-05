@@ -500,6 +500,9 @@ IS
         RAISE e_table_not_exist;
       END IF;
       
+      UPDATE zabbix_housekeeper SET status = 'F' WHERE table_name = p_table_name;
+      COMMIT;
+      
       SELECT del_cond_col_name, reserve_days 
         INTO v_del_cond_col_name, v_reserve_days 
         FROM zabbix_housekeeper 
