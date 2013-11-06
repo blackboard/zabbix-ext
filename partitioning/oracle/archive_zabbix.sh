@@ -94,7 +94,6 @@ if [ $? -ne 0 ]
 then
   MSG='Nothing need to be archived now - SUCCESSFUL!'
   partition_msg_sender
-  exit 0;
 else
 ## Archive the stale partition data
   archive_table
