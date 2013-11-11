@@ -6,7 +6,7 @@ then
   BASE_DIR=$PWD
 fi
 
-. env.sh
+. $BASE_DIR/env.sh
 
 
 ## Drop the stage table from database 

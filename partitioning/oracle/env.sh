@@ -3,9 +3,9 @@
 DB_USER=zabbix
 DB_PASS=zabbix  
 
-ORACLE_SID=ENG11R2
-ORACLE_BASE=/usr/local/oracle
-ORACLE_HOME=$ORACLE_BASE/11gR2
+export ORACLE_SID=ENG11R2
+export ORACLE_BASE=/usr/local/oracle
+export ORACLE_HOME=$ORACLE_BASE/11gR2
 PATH=$ORACLE_HOME/bin:$PATH
 
 SQLPLUS="$ORACLE_HOME/bin/sqlplus -S "

@@ -6,7 +6,7 @@ then
   BASE_DIR=$PWD
 fi
 
-. env.sh
+. $BASE_DIR/env.sh
 
 $SQLPLUS $DB_USER/$DB_PASS @$SCRIPT_HOUSEKEEPER_CLEANUP
 

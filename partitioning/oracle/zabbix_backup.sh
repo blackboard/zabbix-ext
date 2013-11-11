@@ -6,7 +6,7 @@ then
   BASE_DIR=$PWD
 fi
 
-. env.sh
+. $BASE_DIR/env.sh
 
 mkdir $BAK_DIR
 #chown -R oracle:oinstall $BAK_DIR
