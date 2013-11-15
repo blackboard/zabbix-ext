@@ -1,0 +1,3 @@
+SELECT CASE WHEN COUNT(1) > 0 THEN 'FAILED' ELSE 'SUCCESSFUL' END 
+  FROM zabbix_partition
+ WHERE status = 'F';
