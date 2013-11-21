@@ -76,7 +76,7 @@ register_default_values()
 ## Partition database initially
 partition()
 {
-  execute_sql_query @$SCRIPT_CONVERT_TO_PARTITION 
+  execute_sql_query $SCRIPT_CONVERT_TO_PARTITION 
 }
 
 ## Backup zabbix database
