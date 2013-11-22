@@ -8,4 +8,7 @@ fi
 
 . $BASE_DIR/env.sh
 
-$DB_QUERY_TOOL -U $DB_USER -w $DB_PASS -f $SCRIPT_ZABBIX_MAINTAINCE
+setup_register_tables
+register_default_values
+generate_script
+
