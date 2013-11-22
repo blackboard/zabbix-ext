@@ -1,6 +1,21 @@
-Zabbix templates for Blackboard Learn
+Zabbix Extended
 =================================
 
-This is a public repository. The documentation is on EduGarage.
+## What's this for?
+[Zabbix](http://www.zabbix.com/) Extended gives you the tools to scale your [Zabbix](http://www.zabbix.com/) instances and the templates to monitor popular technology stack that it doesn't provide out of the box.
 
-http://www.edugarage.com/display/BBDN/Monitoring+with+Zabbix
+* (Mass) agent deployment script
+* Database partitioning to replace housekeeping task by dropping partitions instead of running housekeeper's delete operations for purging data
+* Additional templates
+  * Blackboard Learn
+  * Cassandra
+  * ElasticSearch
+  * MongoDB
+  * PostgreSQL
+  * Redis
+
+## Requirements
+Zabbix Server version 2.0.2 and up (using the latest version is recommended)
+
+## HOWTOs
+Coming soon!
