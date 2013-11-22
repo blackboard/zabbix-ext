@@ -5,7 +5,6 @@ if [ $BASE_DIR = '.' ]
 then
   BASE_DIR=$PWD
 fi
-
 tmp=${TMPDIR:-/tmp}/xyz.$$
 maintain_job=${BASE_DIR}/maintain.sh
 trap "rm -f $tmp; exit 1" 0 1 2 3 13 15
