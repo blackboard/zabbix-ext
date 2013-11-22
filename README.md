@@ -6,7 +6,7 @@ Zabbix Extended
 
 * (Mass) agent deployment script
 * Database partitioning to replace housekeeping task by dropping partitions instead of running housekeeper's delete operations for purging data
-* Additional templates
+* Custom templates
   * Blackboard Learn
   * Cassandra
   * ElasticSearch
@@ -15,7 +15,8 @@ Zabbix Extended
   * Redis
 
 ## Requirements
-Zabbix Server version 2.0.2 and up (using the latest version is recommended)
+* Zabbix Server version 2.0.2 and up (using the latest version is recommended)
+* monitor-bridge (will be available soon) for custom templates (excluding Blackboard Learn template)
 
 ## HOWTOs
 Coming soon!
