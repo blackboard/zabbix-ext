@@ -8,6 +8,9 @@ fi
 
 . $BASE_DIR/env.sh
 
+mkdir -p $ARCH_DIR
+mkdir -p $BAK_DIR
+
 ## Prebuild the new partitions 
 execute_sql_query $SCRIPT_ZABBIX_ADD_PARTITION
 
