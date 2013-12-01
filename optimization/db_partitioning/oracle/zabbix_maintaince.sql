@@ -502,7 +502,8 @@ IS
       
       UPDATE zabbix_housekeeper SET status = 'F' WHERE table_name = p_table_name;
       COMMIT;
-      
+
+
       SELECT del_cond_col_name, reserve_days 
         INTO v_del_cond_col_name, v_reserve_days 
         FROM zabbix_housekeeper 
@@ -734,6 +735,18 @@ IS
         FROM user_indexes ui
        WHERE ui.table_name = p_tablename
          AND NOT EXISTS ( SELECT 1 FROM user_constraints uc WHERE uc.table_name = ui.table_name AND uc.index_name = ui.index_name ) ;
+    CURSOR cs_column_default ( p_tablename VARCHAR2 ) IS
+      SELECT table_name, column_name, data_default, default_length
+        FROM user_tab_columns 
+       WHERE table_name = p_tablename
+         AND data_default IS NOT NULL;
+    CURSOR cs_fk ( p_tablename VARCHAR2 ) IS
+      SELECT st.table_name, st.constraint_name
+        FROM user_constraints pt
+       INNER JOIN user_constraints st ON pt.constraint_name = st.r_constraint_name
+       WHERE pt.constraint_type = 'P'
+         AND st.constraint_type = 'R'
+         AND pt.table_name = p_tablename;
   BEGIN
     IF ( p_tablename IS NOT NULL ) THEN
       v_old_tablename := UPPER( p_tablename );
@@ -776,7 +789,16 @@ IS
             
       v_script := v_script || v_sql || c_execute_char || c_crlf; 
       execute_sql( v_sql, v_pk1, 'C',  'Create the ' || v_new_tablename || ' partition table successfully.', p_forscript );
-      
+
+
+      -- Set the default value for columns
+      v_script := v_script || '-- Set the default value for columns of ' || v_new_tablename || c_crlf;
+      FOR c_column_default IN cs_column_default( v_old_tablename ) LOOP
+        v_sql := ' ALERT TABLE ' || v_new_tablename || ' MODIFY ' || c_column_default.column_name || ' DEFAULT ' || SUBSTR( c_column_default.data_default, 1, c_column_default.default_length );
+        v_script := v_script || v_sql || c_execute_char || c_crlf; 
+        execute_sql( v_sql, v_pk1, 'SD',  'Set the default value ( ' || SUBSTR( c_column_default.data_default, 1, c_column_default.default_length ) || ' ) for ' || v_new_tablename || ' ( ' ||  c_column_default.column_name || ' ) successfully.', p_forscript ); 
+      END LOOP;
+            
       -- Fill data from regular table into partition table
       v_sql := ' INSERT INTO ' || v_new_tablename 
             || ' SELECT /*+ APPEND */ * FROM ' || v_old_tablename;
@@ -794,7 +816,7 @@ IS
       
       IF ( v_column_name <> ' ' ) THEN
       	IF ( INSTR( v_column_name, v_partition_key ) = 0 ) THEN
-          v_column_name := v_partition_key || ', ' || v_column_name;
+          v_column_name := v_column_name || ', ' || v_partition_key;
       	END IF; 
         v_column_name := ' ( ' || SUBSTR( v_column_name, 1, LENGTH( v_column_name ) - 2 ) || ' ) ';
         v_sql := ' ALTER TABLE ' || v_new_tablename || ' ADD PRIMARY KEY ' || c_crlf 
@@ -851,6 +873,14 @@ IS
       v_script := v_script || v_sql || c_execute_char;
       execute_sql( v_sql, v_pk1, 'ET', 'Exchange the table name for regular table and partition table ' || v_new_tablename || ' successfully.', p_forscript );
       
+      -- Remove the FK constraints from the original table 
+      v_script := v_script || '-- Remove the FK constraints from the original table - OLD_' || v_old_tablename || c_crlf;
+      FOR c_fk IN cs_fk ( 'OLD_' || v_old_tablename ) LOOP
+        v_sql := ' ALERT TABLE ' || c_fk.table_name || ' DROP CONSTRAINT ' || c_fk.constraint_name;
+        v_script := v_script || v_sql || c_execute_char || c_crlf; 
+        execute_sql( v_sql, v_pk1, 'FK',  ' Remove the FK constraint ( ' || c_fk.constraint_name|| ' ) of ' || c_fk.table_name || ' successfully.', p_forscript );         
+      END LOOP;
+      
       -- Generate the convertation script
       IF ( p_forscript = 'Y' ) THEN
         output_script( v_script );
@@ -870,4 +900,3 @@ IS
 END zabbix_maintaince;
 /
 EXIT;
-
