@@ -13,6 +13,7 @@ Zabbix Extended
   * MongoDB
   * PostgreSQL
   * Redis
+  * Oracle Database
 
 ## Requirements
 * Zabbix Server version 2.0.2 and up (using the latest version is recommended)
