@@ -78,19 +78,11 @@ chown -R zabbix:zabbix ${install_dir}/tmp
 
 # setup service
 rm -rf /etc/init.d/zabbix_agentd
-cp misc/init.d/redhat/zabbix_agentd_ctl /etc/init.d/zabbix_agentd
-sed -i "s%/opt/zabbix%$install_dir%g" /etc/init.d/zabbix_agentd
-sed -i "s%/var/tmp/zabbix_agentd.pid%$install_dir/tmp/zabbix_agentd.pid%g" /etc/init.d/zabbix_agentd
-sed -i '{
-	2 i\
-# chkconfig: 345 95 95
-}' /etc/init.d/zabbix_agentd
-sed -i '{
-	3 i\
-# description: Zabbix Agentd
-}' /etc/init.d/zabbix_agentd
+cp misc/init.d/fedora/core/zabbix_agentd /etc/init.d/zabbix_agentd
+sed -i "s%BASEDIR=/usr/local%BASEDIR=$install_dir%g" /etc/init.d/zabbix_agentd
+sed -i "s%PIDFILE=/tmp%PIDFILE=$install_dir/tmp/%g" /etc/init.d/zabbix_agentd
 chmod +x /etc/init.d/zabbix_agentd
-chkconfig --level 345 zabbix_agentd on
+chkconfig zabbix_agentd on
 
 # start the service
 service zabbix_agentd start
