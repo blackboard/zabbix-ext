@@ -16,6 +16,7 @@ then
 fi
 install_dir=$1
 zabbix_server=$2
+metadata=$3
 
 # create group
 group=$(cat /etc/group | grep zabbix)
@@ -62,7 +63,7 @@ sed -i "s/Hostname=Zabbix server/Hostname=`hostname`/" ${install_dir}/etc/zabbix
 sed -i "s/Server=127.0.0.1/Server=$zabbix_server/" ${install_dir}/etc/zabbix_agentd.conf
 sed -i "s/ServerActive=127.0.0.1/ServerActive=$active_server/" ${install_dir}/etc/zabbix_agentd.conf
 sed -i "s%# PidFile=/tmp/zabbix_agentd.pid%PidFile=${install_dir}/tmp/zabbix_agentd.pid%" ${install_dir}/etc/zabbix_agentd.conf
-sed -i "s%# HostMetadata=%HostMetadata=linux%" ${install_dir}/etc/zabbix_agentd.conf
+sed -i "s%# HostMetadata=%HostMetadata=linux $metadata%" ${install_dir}/etc/zabbix_agentd.conf
 
 # add some user parameters from ../../user_parameters
 user_paramters_dir=../user_parameters

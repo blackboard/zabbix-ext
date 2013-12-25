@@ -5,7 +5,7 @@ LOG_FILE=deploy_agents_`date +"%Y_%m_%d_%H_%M_%S"`.log
 
 usage()
 {
-  echo "usage: $0 [--server|-s] server [--user|-u] username [--pass|-p] password [--data|-d] datafile"
+  echo "usage: $0 [--server|-s] server [--user|-u] username [--pass|-p] password [--data|-d] datafile [--metadata|-m] metadata"
   echo "for example: $0 -s zabbix.pd.local -u root -p pass -d zabbix_list.data"
 }
 
@@ -31,9 +31,10 @@ install_agent()
   server=$3
   user=$4
   password=$5
+  metadata=$6
   
   echo "install agent on $remote_host:$install_dir for zabbix, server is $server"
-  tools/invoke_remote_cmd.exp "$REMOTE_TMP_DIR/linux/install_agent.sh $install_dir $server > $REMOTE_TMP_DIR/linux/installation.log 2>&1" $remote_host $user $password
+  tools/invoke_remote_cmd.exp "$REMOTE_TMP_DIR/linux/install_agent.sh $install_dir $server $metadata > $REMOTE_TMP_DIR/linux/installation.log 2>&1" $remote_host $user $password
   
   if [ $? -ne 0 ]
   then
@@ -91,6 +92,10 @@ do
     shift
     DATA="$1"
     ;;
+  --metadata | -m )
+    shift
+    METADATA="$1"
+    ;;
   *)
     usage_and_exit
     ;;
@@ -123,7 +128,7 @@ do
   echo '==================================================================='
   echo "install $TYPE agent on $host:/$location"
   copy_files $host $USER $PASS
-  install_agent $host $location $SERVER $USER $PASS
+  install_agent $host $location $SERVER $USER $PASS $METADATA
 done < $DATA
 
 exit 0
