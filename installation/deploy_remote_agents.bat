@@ -23,6 +23,8 @@ shift
 set DATA_FILE=%1
 if not exist %DATA_FILE% goto usage
 shift
+if "%1" == "-m" set METADATA=%2
+
 
 echo deploy result: > %LOG_FILE%
 
@@ -36,7 +38,7 @@ echo copy file to \\%%i\%REMOTE_TMP_DIR%
 xcopy /Y/E/I windows \\%%i\%REMOTE_TMP_DIR%\windows
 
 echo install agent on \\%%i %%j
-tools\PsExec.exe \\%%i -u %USER% -p %PASSWORD% %REMOTE_ZABBIX_DIR%\windows\install_agent.bat %%j %SERVER%
+tools\PsExec.exe \\%%i -u %USER% -p %PASSWORD% %REMOTE_ZABBIX_DIR%\windows\install_agent.bat %%j %SERVER% %METADATA%
 
 if ERRORLEVEL 0 echo deploy agent on %%i successful >> %LOG_FILE%
 if not ERRORLEVEL 0 echo deploy agent on %%i faile >> %LOG_FILE%
@@ -44,7 +46,7 @@ if not ERRORLEVEL 0 echo deploy agent on %%i faile >> %LOG_FILE%
 goto end
 
 :usage
-echo "usage: %0 -s server -u username -p password -d datafile"
-echo "for example: $0 -s zabbix.pd.local -u root -p pass -d zabbix_list.data"
+echo "usage: %0 -s server -u username -p password -d datafile -m metadata"
+echo "for example: $0 -s zabbix.pd.local -u root -p pass -d zabbix_list.data -m perf"
 
 :end
