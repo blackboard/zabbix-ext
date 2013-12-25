@@ -68,7 +68,7 @@ copy_files()
 }
 
 # validate arguments
-if [ $# -ne 8 ]
+if [ $# -lt 8 ]
 then
   usage_and_exit
 fi
