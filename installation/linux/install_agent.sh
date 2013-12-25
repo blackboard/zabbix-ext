@@ -53,12 +53,16 @@ cd zabbix-*
 make
 make install
 
+# use the first server as the active server
+active_server=$(echo $zabbix_server|awk -F , '{print $1}')
+
 # Configure zabbix agent
 sed -i "s%LogFile=/tmp/zabbix_agentd.log%LogFile=$install_dir/logs/zabbix_agentd.log%g" ${install_dir}/etc/zabbix_agentd.conf
 sed -i "s/Hostname=Zabbix server/Hostname=`hostname`/" ${install_dir}/etc/zabbix_agentd.conf
 sed -i "s/Server=127.0.0.1/Server=$zabbix_server/" ${install_dir}/etc/zabbix_agentd.conf
-sed -i "s/ServerActive=127.0.0.1/ServerActive=$zabbix_server/" ${install_dir}/etc/zabbix_agentd.conf
+sed -i "s/ServerActive=127.0.0.1/ServerActive=$active_server/" ${install_dir}/etc/zabbix_agentd.conf
 sed -i "s%# PidFile=/tmp/zabbix_agentd.pid%PidFile=${install_dir}/tmp/zabbix_agentd.pid%" ${install_dir}/etc/zabbix_agentd.conf
+sed -i "s%# HostMetadata=%HostMetadata=linux%" ${install_dir}/etc/zabbix_agentd.conf
 
 # add some user parameters from ../../user_parameters
 user_paramters_dir=../user_parameters
