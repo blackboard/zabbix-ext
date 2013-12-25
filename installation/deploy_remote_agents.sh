@@ -34,7 +34,7 @@ install_agent()
   metadata=$6
   
   echo "install agent on $remote_host:$install_dir for zabbix, server is $server"
-  tools/invoke_remote_cmd.exp "$REMOTE_TMP_DIR/linux/install_agent.sh $install_dir $server $metadata > $REMOTE_TMP_DIR/linux/installation.log 2>&1" $remote_host $user $password
+  tools/invoke_remote_cmd.exp "$REMOTE_TMP_DIR/linux/install_agent.sh $install_dir $server \"$metadata\" > $REMOTE_TMP_DIR/linux/installation.log 2>&1" $remote_host $user $password
   
   if [ $? -ne 0 ]
   then
@@ -128,7 +128,7 @@ do
   echo '==================================================================='
   echo "install $TYPE agent on $host:/$location"
   copy_files $host $USER $PASS
-  install_agent $host $location $SERVER $USER $PASS $METADATA
+  install_agent $host $location $SERVER $USER $PASS "$METADATA"
 done < $DATA
 
 exit 0
