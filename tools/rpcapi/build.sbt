@@ -12,8 +12,11 @@ EclipseKeys.createSrc := EclipseCreateSrc.Default + EclipseCreateSrc.Resource
 
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-json" % "2.2.1",
-  "org.scalaj" %% "scalaj-http" % "0.3.12"
+  "org.scalaj" %% "scalaj-http" % "0.3.12",
+  "com.typesafe" % "config" % "1.0.2"
 )
+
+parallelExecution in Test := false
 
 //tests
 libraryDependencies ++= Seq(
@@ -25,10 +28,3 @@ libraryDependencies ++= Seq(
 resolvers += "typesafe releases" at "http://repo.typesafe.com/typesafe/releases"
 
 assemblySettings
-
-libraryDependencies ~= { _ map {
-  case m if m.organization == "com.typesafe.play" =>
-    m.exclude("commons-logging", "commons-logging").
-      exclude("com.typesafe.play", "sbt-link")
-  case m => m
-}}
