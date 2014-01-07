@@ -1,7 +1,7 @@
 package blackboard.monitoring.zabbix
 
 import play.api.libs.json._
-import play.api.libs.ws._
+import scalaj.http._
 import scala.Dynamic
 import scala.language.dynamics
 import scala.concurrent.{ Future, Await }
@@ -16,8 +16,8 @@ trait ZabbixRpcApi {
   } =>
 
   private val apiVersion = "2.0"
-  private val requestTimeoutInSecond = 3
-  private val responseTimeoutInSecond = 10
+  private val timeout = 10000
+  private val HTTP_OK = 200
 
   val action = Category("action")
   val alert = Category("alert")
@@ -43,21 +43,23 @@ trait ZabbixRpcApi {
   val template = Category("template")
 
   private def doRequest(body: JsObject) = {
-    implicit val context = scala.concurrent.ExecutionContext.Implicits.global
-    val futureResult: Future[JsValue] = WS.url(url)
-      .withHeaders(("Content-Type", "application/json-rpc"))
-      .withRequestTimeout(requestTimeoutInSecond * 1000).post(body).map {
-        response => response.json
-      }
+    val options = List(HttpOptions.readTimeout(10000))
+    val headers = ("Content-Type", "application/json-rpc")
+    val request = Http.postData(url, Json.stringify(body)).headers(headers).options(options)
 
-    val result = Await.ready(futureResult, Duration(responseTimeoutInSecond, SECONDS)).value.get.get
-
-    (result \ "result").asOpt[JsValue] match {
-      case Some(rtn) => rtn
-      case None => {
-        throw new Exception(Json.prettyPrint((result \ "error")))
+    request.responseCode match {
+      case HTTP_OK => {
+        val result = Json.parse(request.asString)
+        (result \ "result").asOpt[JsValue] match {
+          case Some(rtn) => rtn
+          case None => {
+            throw new Exception(Json.prettyPrint((result \ "error")))
+          }
+        }
       }
+      case status: Int => throw new Exception(s"Wrong response HTTP status code $status")
     }
+
   }
 
   private def auth = {

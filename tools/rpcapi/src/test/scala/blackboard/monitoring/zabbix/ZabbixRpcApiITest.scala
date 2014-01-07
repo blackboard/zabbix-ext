@@ -15,10 +15,8 @@ class ZabbixRpcApiITest extends Specification with ZabbixRpcApi {
 
   "host" should {
     "create host should be successful" in {
-      val result = hostgroup.get(Json.obj(
-        "filter" -> Json.obj(
-          "name" -> Json.arr("RPC API Tests"))))
-      println(result)
+      val groupId = testGroupId
+      println(groupId)
       1 must_== 1
     }
   }
@@ -28,7 +26,7 @@ class ZabbixRpcApiITest extends Specification with ZabbixRpcApi {
       "filter" -> Json.obj(
         "name" -> Json.arr(testGroup)))) match {
       case groups: JsArray => groups.value.headOption match {
-        case Some(groupid) => groupid
+        case Some(groupid) => (groupid \ "groupid").as[String]
         case None => throw new Exception(s"None group $testGroup found")
       }
       case _ => throw new Exception("The return value should be JSON array")
