@@ -10,7 +10,6 @@ import com.typesafe.config.ConfigFactory
 
 @RunWith(classOf[JUnitRunner])
 class ZabbixRpcApiITest extends Specification with ZabbixCommonOps {
-  override lazy val debug = true
   private val testGroup = "RPC_API_TEST_GROUP_ORIGIN"
   private val testDeleteGroup = "RPC_API_TEST_GROUP_TO_DELETE"
   private val testProxy = "RPC_API_TEST_PROXY"
