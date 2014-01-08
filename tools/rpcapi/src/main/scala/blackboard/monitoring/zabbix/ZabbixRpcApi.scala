@@ -19,8 +19,8 @@ trait ZabbixRpcApi {
   def password = config.getString("zabbix.password")
 
   private val apiVersion = "2.0"
-  private val timeout = 10000
   private val HTTP_OK = 200
+  private val READ_TIME_OUT = 10000
 
   val action = Category("action")
   val alert = Category("alert")
@@ -55,9 +55,9 @@ trait ZabbixRpcApi {
       case _ => throw new Exception("Only JSON Array supported but the result is not")
     }
   }
-
-  def doRequest(body: JsValue) = {
-    val options = List(HttpOptions.readTimeout(10000))
+  
+  def doRequest(body: JsValue, readTimeout: Int = READ_TIME_OUT) = {
+    val options = List(HttpOptions.readTimeout(readTimeout))
     val headers = ("Content-Type", "application/json-rpc")
     val request = Http.postData(url, Json.stringify(body)).headers(headers).options(options)
 
@@ -66,7 +66,7 @@ trait ZabbixRpcApi {
     }
 
     val (responseCode, headersMap, resultString) = request.asHeadersAndParse(Http.readString)
-    
+
     responseCode match {
       case HTTP_OK => {
         val result = Json.parse(resultString)
@@ -104,14 +104,14 @@ trait ZabbixRpcApi {
   private def requestId = Random.nextInt(Int.MaxValue)
 
   case class Category(category: String) extends Dynamic {
-    def applyDynamic(method: String)(param: JsValue) = {
+    def applyDynamic(method: String)(param: JsValue, readTimeOut: Int = READ_TIME_OUT) = {
       val body = Json.obj(
         "jsonrpc" -> apiVersion,
         "method" -> s"$category.$method",
         "params" -> param,
         "auth" -> auth,
         "id" -> requestId)
-      doRequest(body)
+      doRequest(body, readTimeOut)
     }
   }
 }

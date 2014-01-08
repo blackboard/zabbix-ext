@@ -23,4 +23,11 @@ trait ZabbixCommonOps extends ZabbixRpcApi {
         "host" -> Json.arr(proxyName))))
     extractUniqueId("proxyid", result)
   }
+
+  def getTemplateIdByName(templateName: String) = {
+    val result = template.get(Json.obj(
+      "filter" -> Json.obj(
+        "host" -> Json.arr(templateName))))
+    extractUniqueId("templateid", result)
+  }
 }
