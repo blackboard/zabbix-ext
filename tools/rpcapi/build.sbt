@@ -11,12 +11,14 @@ version := "0.1"
 EclipseKeys.createSrc := EclipseCreateSrc.Default + EclipseCreateSrc.Resource
 
 libraryDependencies ++= Seq(
-  "com.typesafe.play" %% "play-json" % "2.2.1",
   "org.scalaj" %% "scalaj-http" % "0.3.12",
-  "com.typesafe" % "config" % "1.0.2"
+  "org.slf4j" % "log4j-over-slf4j" % "1.7.2",
+  "ch.qos.logback" % "logback-classic" % "1.0.7",
+  "ch.qos.logback" % "logback-core" % "1.0.7",
+  "com.typesafe.play" %% "play-json" % "2.2.1",
+  "com.typesafe" % "config" % "1.0.2",
+  "com.typesafe" %% "scalalogging-slf4j" % "1.0.1"
 )
-
-parallelExecution in Test := false
 
 //tests
 libraryDependencies ++= Seq(
@@ -24,6 +26,8 @@ libraryDependencies ++= Seq(
   "org.mockito" % "mockito-all" % "1.9.0" % "test",
   "org.specs2" %% "specs2" % "2.3.7" % "test"
 )
+
+parallelExecution in Test := false
 
 resolvers += "typesafe releases" at "http://repo.typesafe.com/typesafe/releases"
 

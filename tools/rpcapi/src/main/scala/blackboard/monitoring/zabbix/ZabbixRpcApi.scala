@@ -1,16 +1,16 @@
 package blackboard.monitoring.zabbix
 
+import java.util.concurrent.TimeUnit
 import scala.Dynamic
 import scala.language.dynamics
 import scala.util.Random
 import com.typesafe.config.ConfigFactory
+import com.typesafe.scalalogging.slf4j.Logging
 import scalaj.http._
 import play.api.libs.json._
-import java.util.concurrent.TimeUnit
 
-trait ZabbixRpcApi {
+trait ZabbixRpcApi extends Logging {
   val config = ConfigFactory.load
-  lazy val debug = false
 
   var authKey: Option[String] = None
 
@@ -55,24 +55,20 @@ trait ZabbixRpcApi {
       case _ => throw new Exception("Only JSON Array supported but the result is not")
     }
   }
-  
+
   def doRequest(body: JsValue, readTimeout: Int = READ_TIME_OUT) = {
     val options = List(HttpOptions.readTimeout(readTimeout))
     val headers = ("Content-Type", "application/json-rpc")
     val request = Http.postData(url, Json.stringify(body)).headers(headers).options(options)
 
-    if (debug) {
-      println("Request:\n" + Json.prettyPrint(body))
-    }
+    logger.debug("Request:\n" + Json.prettyPrint(body))
 
     val (responseCode, headersMap, resultString) = request.asHeadersAndParse(Http.readString)
 
     responseCode match {
       case HTTP_OK => {
         val result = Json.parse(resultString)
-        if (debug) {
-          println("Response:\n" + Json.prettyPrint(result))
-        }
+        logger.debug("Response:\n" + Json.prettyPrint(result))
         (result \ "result").asOpt[JsValue] match {
           case Some(rtn) => rtn
           case None => {
