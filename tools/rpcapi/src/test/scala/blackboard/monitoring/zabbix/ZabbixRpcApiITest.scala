@@ -9,7 +9,7 @@ import play.api.libs.json._
 import com.typesafe.config.ConfigFactory
 
 @RunWith(classOf[JUnitRunner])
-class ZabbixRpcApiITest extends Specification with ZabbixCommonOps {
+class ZabbixRpcApiITest extends Specification with ZabbixRpcApi {
   private val testGroup = "RPC_API_TEST_GROUP_ORIGIN"
   private val testDeleteGroup = "RPC_API_TEST_GROUP_TO_DELETE"
   private val testProxy = "RPC_API_TEST_PROXY"
