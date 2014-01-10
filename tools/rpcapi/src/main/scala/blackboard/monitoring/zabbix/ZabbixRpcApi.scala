@@ -77,8 +77,8 @@ trait ZabbixRpcApi extends Logging {
   def extractUniqueId(field: String, result: JsValue) = {
     result match {
       case items: JsArray => items.value.headOption match {
-        case Some(item) => (item \ field).as[String]
-        case None => throw new Exception(s"No $field found")
+        case Some(item) => Some((item \ field).as[String])
+        case None => None
       }
       case _ => throw new Exception("Only JSON Array supported but the result is not")
     }

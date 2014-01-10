@@ -2,6 +2,7 @@ package blackboard.monitoring.zabbix
 
 import com.typesafe.scalalogging.slf4j.Logging
 import com.typesafe.config.ConfigFactory
+import play.api.libs.json._
 
 object ActionFactory extends Logging {
   val ACTION_CREATE_HOST = "_action_create_host"
@@ -61,20 +62,53 @@ abstract sealed class Action {
   def execute(): Unit
 }
 
-case class CreateHostAction(server: Host)
-  extends Action with ZabbixRpcApi {
-
+case class CreateHostAction(server: Host) extends Action with ZabbixRpcApi {
   override def execute() {
+    val groups = server.groups map { getGroupIdByName(_) } collect { case Some(id) => s"""{"groupid": "${id}"}""" }
+    if (groups.size == 0)
+      throw new Exception("No group found on zabbix server, at must one valited group needed")
+    val templates = server.templates map { getTemplateIdByName(_) } collect { case Some(id) => s"""{"templateid": "${id}"}""" }
+    val proxyId = getProxyIdByName(server.proxyName.get)
+    val interfaces = server.interfaces map {
+      interface =>
+        s"""{
+          "type": ${interface.interface},
+          "main": 1,
+          "useip": 1,
+          "ip": "${interface.ip}",
+          "dns": "",
+          "port": "${interface.port}"
+        }"""
+    }
 
+    var request = Json.obj(
+      "host" -> server.name,
+      "interfaces" -> Json.parse(interfaces.mkString("[", ",", "]")),
+      "groups" -> Json.parse(groups.mkString("[", ",", "]")),
+      "inventory_mode" -> 1,
+      "inventory" -> Json.obj(
+        "notes" -> "Created by RPC API"))
+
+    if (!proxyId.isEmpty) {
+      request = request ++ Json.obj("proxy_hostid" -> proxyId.get)
+    }
+    if (!templates.isEmpty) {
+      request = request ++ Json.obj("templates" -> Json.parse(templates.mkString("[", ",", "]")))
+    }
+
+    val createdHosts = (host.create(request) \ "hostids").as[JsArray].value
+    logger.info(s"host ${createdHosts} created")
   }
 }
 
 /**
- * This action move the host to to delete group and disable the host instead of removing it
+ * This action remove the host by the host name
  */
-case class DeleteHostAction(server: String)
-  extends Action with ZabbixRpcApi {
+case class DeleteHostAction(server: String) extends Action with ZabbixRpcApi {
   override def execute() {
-    
+	getHostIdByName(server) match {
+	  case Some(hostId) => host.delete(Json.parse(s"""["${hostId}"]"""), 300000)
+	  case None => logger.warn(s"No host named ${server} found, do nothing")
+	}
   }
 }

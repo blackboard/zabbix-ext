@@ -2,23 +2,10 @@ package blackboard.monitoring.zabbix
 
 import org.junit.runner.RunWith
 import org.specs2.runner.JUnitRunner
-import org.specs2.mutable.Specification
-import org.specs2.specification.Fragments
-import org.specs2.specification.Step
 import play.api.libs.json._
-import com.typesafe.config.ConfigFactory
 
 @RunWith(classOf[JUnitRunner])
-class ZabbixRpcApiITest extends Specification with ZabbixRpcApi {
-  private val testGroup = "RPC_API_TEST_GROUP_ORIGIN"
-  private val testDeleteGroup = "RPC_API_TEST_GROUP_TO_DELETE"
-  private val testProxy = "RPC_API_TEST_PROXY"
-  private val testJmxTemplate = "RPC_API_TEST_TEMPLATE_JMX"
-  private val testAgentTemplate = "RPC_API_TEST_TEMPLATE_AGENT"
-  private val hostname = "RPC_API_TEST_HOST"
-  private val hostip = "9.9.9.9"
-  private val port = "10050"
-
+class ZabbixRpcApiITest extends ZabbixTest {
   private var testGroupId = ""
   private var testDeleteGroupId = ""
   private var testProxyId = ""
@@ -26,32 +13,25 @@ class ZabbixRpcApiITest extends Specification with ZabbixRpcApi {
   private var testAgentTemplateId = ""
   private var hostid = ""
 
-  /**
-   * The examples here are executed one by one
-   */
-  sequential
-
-  override def map(fs: => Fragments) = Step(setup) ^ fs ^ Step(tearDown)
-
-  def setup() {
+  override def setup() {
     testGroupId = createGroup(testGroup)
     testDeleteGroupId = createGroup(testDeleteGroup)
-    createProxy()
+    testProxyId = createProxy(testProxy)
     testJmxTemplateId = createTemplate(testJmxTemplate, testGroupId)
     testAgentTemplateId = createTemplate(testAgentTemplate, testGroupId)
   }
 
-  def tearDown() {
+  override def tearDown() {
     cleanHosts(testGroupId)
     cleanHosts(testDeleteGroupId)
-    deleteGroups()
-    deleteProxy()
-    deleteTemplates()
+    deleteTemplates(testJmxTemplateId, testAgentTemplateId)
+    deleteGroups(testGroupId, testDeleteGroupId)
+    deleteProxy(testProxyId)
   }
 
   "host" should {
     "host should not exists" in {
-      getHostIdByName(hostname) must throwA[Exception]
+      getHostIdByName(hostname) must beNone
     }
 
     "create host should be successful" in {
@@ -143,41 +123,5 @@ class ZabbixRpcApiITest extends Specification with ZabbixRpcApi {
     }
   }
 
-  private def createProxy() {
-    testProxyId = (proxy.create(Json.obj("host" -> testProxy, "status" -> "5")) \ "proxyids").as[JsArray].value.head.as[String]
-  }
-
-  private def deleteProxy() {
-    proxy.delete(Json.arr(testProxyId))
-  }
-
-  private def createTemplate(name: String, groupId: String) = {
-    (template.create(Json.obj("host" -> name, "groups" -> groupId)) \ "templateids").as[JsArray].value.head.as[String]
-  }
-
-  private def deleteTemplates() {
-    template.delete(Json.arr(testJmxTemplateId, testAgentTemplateId))
-  }
-
-  private def deleteGroups() {
-    hostgroup.delete(Json.arr(testGroupId, testDeleteGroupId))
-  }
-
-  private def createGroup(group: String) = {
-    (hostgroup.create(Json.obj("name" -> group)) \ "groupids").as[JsArray].value.head.as[String]
-  }
-
-  private def cleanHosts(groupId: String) {
-    host.get(Json.obj(
-      "groupids" -> Json.arr(groupId))) match {
-      case results: JsArray => {
-        if (!results.value.isEmpty) {
-          val hosts = results.value map { _ \ "hostid" }
-          host.delete(Json.parse(hosts.mkString("[", ",", "]")), 300000)
-        }
-      }
-      case _ => // do nothing when there is not host
-    }
-  }
 }
 
