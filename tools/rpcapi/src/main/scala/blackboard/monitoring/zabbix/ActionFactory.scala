@@ -11,6 +11,8 @@ object ActionFactory extends Logging {
   private val PATTERN_TEMPLATE = """template\(["']?([^)"']+)["']?\)""".r
   private val PATTERN_GROUP = """group\(["']?([^)"']+)["']?\)""".r
   private val PATTERN_JMX = "jmx_interface"
+    
+  private val jmxInterfacePort = ConfigFactory.load().getString("zabbix.jmx.port")
 
   def get(action: String)(host: String, ip: Option[String], port: Option[String],
     proxy: Option[String], metadata: Option[String]) = {
@@ -39,7 +41,7 @@ object ActionFactory extends Logging {
 
         var interfaces = Set(Interface("1", ip.get, port.get))
         if (data.contains(PATTERN_JMX)) {
-          interfaces += Interface("4", ip.get, port.get)
+          interfaces += Interface("4", ip.get, jmxInterfacePort)
         }
         Some(CreateHostAction(Host(host, proxy, templates, groups, interfaces)))
       }
