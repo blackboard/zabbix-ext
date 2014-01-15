@@ -28,14 +28,14 @@ class ZabbixActionITest extends ZabbixTest {
 
   "Action" should {
     "create host with invalid group should throw exception" in {
-      val cha = ActionFactory.get(ActionFactory.ACTION_CREATE_HOST)(ActionArgument(hostname, Some(hostip),
+      val cha = ActionFactory.get(ActionArgument(ActionFactory.ACTION_CREATE_HOST, hostname, Some(hostip),
         Some(port), Some(testProxy), Some("group(template learn linux)")))
       cha must beSome
       cha.get.execute must throwA[Exception]
     }
 
     "create host with 1 group, 2 template, 2 interfaces" in {
-      val cha = ActionFactory.get(ActionFactory.ACTION_CREATE_HOST)(ActionArgument(hostname, Some(hostip),
+      val cha = ActionFactory.get(ActionArgument(ActionFactory.ACTION_CREATE_HOST, hostname, Some(hostip),
         Some(port), Some(testProxy), Some(s"group(${testGroup}), template(${testJmxTemplate}), template(${testAgentTemplate}), jmx_interface")))
       cha must beSome
       cha.get.execute()
@@ -66,7 +66,7 @@ class ZabbixActionITest extends ZabbixTest {
     }
     
     "delete host should be successful" in {
-      val cha = ActionFactory.get(ActionFactory.ACTION_DELETE_HOST)(ActionArgument(hostname, None, None, None, None))
+      val cha = ActionFactory.get(ActionArgument(ActionFactory.ACTION_DELETE_HOST, hostname, None, None, None, None))
       cha must beSome
       cha.get.execute()
       

@@ -1,6 +1,9 @@
-# zabbix basic information
+# zabbix account
 zabbix.username = "rpc_api_account"
 zabbix.password = "changeme"
+
+# zabbix RPC API url
 zabbix.rpcapi = "http://zabbix.pd.local/api_jsonrpc.php"
 
+# JMX interface port for the hosts needing jmx interface
 zabbix.jmx.port=8899

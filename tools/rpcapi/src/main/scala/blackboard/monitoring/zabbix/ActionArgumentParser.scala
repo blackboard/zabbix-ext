@@ -8,17 +8,19 @@ object ActionArgumentParser {
   private def OPTION_PORT = "port"
   private def OPTION_PROXY = "proxy"
   private def OPTION_METADATA = "metadata"
+  private def OPTION_ACTION = "action"
 
   def parse(args: String*) = {
     val options = buildCmdOptions()
     val parser = new GnuParser();
     val line = parser.parse(options, args.toArray)
+    val action = line.getOptionValue(OPTION_ACTION)
     val host = line.getOptionValue(OPTION_HOST)
     val ip = getOptionalArgument(line, OPTION_IP)
     val port = getOptionalArgument(line, OPTION_PORT)
     val proxy = getOptionalArgument(line, OPTION_PROXY)
     val metadata = getOptionalArgument(line, OPTION_METADATA)
-    ActionArgument(host, ip, port, proxy, metadata)
+    ActionArgument(action, host, ip, port, proxy, metadata)
   }
 
   private def getOptionalArgument(line: CommandLine, option: String) = {
@@ -65,9 +67,15 @@ object ActionArgumentParser {
     optMetadata.setOptionalArg(true)
     options.addOption(optMetadata)
 
+    val actionMetadata = new Option(OPTION_ACTION, true, "action")
+    actionMetadata.setRequired(true)
+    actionMetadata.setArgs(1)
+    actionMetadata.setOptionalArg(false)
+    options.addOption(actionMetadata)
+    
     options
   }
 }
 
-case class ActionArgument(host: String, ip: Option[String], port: Option[String],
+case class ActionArgument(action: String, host: String, ip: Option[String], port: Option[String],
   proxy: Option[String], metadata: Option[String])

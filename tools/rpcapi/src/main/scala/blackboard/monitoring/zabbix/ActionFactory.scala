@@ -5,8 +5,8 @@ import com.typesafe.config.ConfigFactory
 import play.api.libs.json._
 
 object ActionFactory extends Logging {
-  val ACTION_CREATE_HOST = "_action_create_host"
-  val ACTION_DELETE_HOST = "_action_delete_host"
+  val ACTION_CREATE_HOST = "create_host"
+  val ACTION_DELETE_HOST = "delete_host"
 
   private val PATTERN_TEMPLATE = """template\(["']?([^)"']+)["']?\)""".r
   private val PATTERN_GROUP = """group\(["']?([^)"']+)["']?\)""".r
@@ -14,14 +14,14 @@ object ActionFactory extends Logging {
     
   private val jmxInterfacePort = ConfigFactory.load().getString("zabbix.jmx.port")
 
-  def get(action: String)(arg: ActionArgument) = {
-    checkNotEmpty(action, "action must be a none empty value")
+  def get(arg: ActionArgument) = {
+    checkNotEmpty(arg.action, "action must be a none empty value")
     checkNotEmpty(arg.host, "host must be a none empty value")
 
-    action match {
+    arg.action match {
       case ACTION_CREATE_HOST => getCreateHostAction(arg)
       case ACTION_DELETE_HOST => Some(DeleteHostAction(arg.host))
-      case _ => throw new Exception(s"Action $action not supportted")
+      case _ => throw new Exception(s"Action ${arg.action} not supportted")
     }
   }
 
