@@ -14,24 +14,22 @@ object ActionFactory extends Logging {
     
   private val jmxInterfacePort = ConfigFactory.load().getString("zabbix.jmx.port")
 
-  def get(action: String)(host: String, ip: Option[String], port: Option[String],
-    proxy: Option[String], metadata: Option[String]) = {
+  def get(action: String)(arg: ActionArgument) = {
     checkNotEmpty(action, "action must be a none empty value")
-    checkNotEmpty(host, "host must be a none empty value")
+    checkNotEmpty(arg.host, "host must be a none empty value")
 
     action match {
-      case ACTION_CREATE_HOST => getCreateHostAction(host, ip, port, proxy, metadata)
-      case ACTION_DELETE_HOST => Some(DeleteHostAction(host))
+      case ACTION_CREATE_HOST => getCreateHostAction(arg)
+      case ACTION_DELETE_HOST => Some(DeleteHostAction(arg.host))
       case _ => throw new Exception(s"Action $action not supportted")
     }
   }
 
-  private def getCreateHostAction(host: String, ip: Option[String], port: Option[String],
-    proxy: Option[String], metadata: Option[String]) = {
-    if (ip == None || port == None || ip.get.equals("") || port.get.equals(""))
-      throw new IllegalArgumentException(s"port or ip should not be emtpy, port=$port.get, ip=$ip.get")
+  private def getCreateHostAction(arg: ActionArgument) = {
+    if (arg.ip.isEmpty || arg.port.isEmpty || arg.ip.get.equals("") || arg.port.get.equals(""))
+      throw new IllegalArgumentException(s"port or ip should not be emtpy, port=${arg.port}, ip=${arg.ip}")
 
-    metadata match {
+    arg.metadata match {
       case Some(data) => {
         val templates = PATTERN_TEMPLATE.findAllIn(data).matchData.map(_.subgroups(0)).toSet
         val groups = PATTERN_GROUP.findAllIn(data).matchData.map(_.subgroups(0)).toSet
@@ -39,14 +37,14 @@ object ActionFactory extends Logging {
         if (groups.size == 0)
           throw new Exception("None group assigned, you must assign at least one group for the host")
 
-        var interfaces = Set(Interface("1", ip.get, port.get))
+        var interfaces = Set(Interface("1", arg.ip.get, arg.port.get))
         if (data.contains(PATTERN_JMX)) {
-          interfaces += Interface("4", ip.get, jmxInterfacePort)
+          interfaces += Interface("4", arg.ip.get, jmxInterfacePort)
         }
-        Some(CreateHostAction(Host(host, proxy, templates, groups, interfaces)))
+        Some(CreateHostAction(Host(arg.host, arg.proxy, templates, groups, interfaces)))
       }
       case None => {
-        logger.warn(s"No metadata found for host $host, do nothing")
+        logger.warn(s"No metadata found for host ${arg.host}, do nothing")
         None
       }
     }

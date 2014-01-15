@@ -11,21 +11,23 @@ import com.typesafe.config.ConfigFactory
 @RunWith(classOf[JUnitRunner])
 class ActionFactoryTest extends Specification {
   "ActionFactory" should {
-    "throw exception if illegal arguments passed in" in {
-      ActionFactory.get(null)("host", None, None, None, None) must throwA[IllegalArgumentException]
-      ActionFactory.get("")("host", None, None, None, None) must throwA[IllegalArgumentException]
-      ActionFactory.get("testAction")("host", None, None, None, None) must throwA[Exception]
-      ActionFactory.get(ActionFactory.ACTION_DELETE_HOST)(null, None, None, None, None) must throwA[IllegalArgumentException]
-      ActionFactory.get(ActionFactory.ACTION_DELETE_HOST)("", None, None, None, None) must throwA[IllegalArgumentException]
-      ActionFactory.get(ActionFactory.ACTION_CREATE_HOST)(null, None, None, None, None) must throwA[IllegalArgumentException]
-      ActionFactory.get(ActionFactory.ACTION_CREATE_HOST)("", None, None, None, None) must throwA[IllegalArgumentException]
-      ActionFactory.get(ActionFactory.ACTION_CREATE_HOST)("host", None, None, None, None) must throwA[IllegalArgumentException]
+    "throw exception if null action passed in" in {
+      ActionFactory.get(null)(ActionArgument("host", None, None, None, None)) must throwA[IllegalArgumentException]
+      ActionFactory.get("")(ActionArgument("host", None, None, None, None)) must throwA[IllegalArgumentException]
+      ActionFactory.get("testAction")(ActionArgument("host", None, None, None, None)) must throwA[Exception]
+      ActionFactory.get(ActionFactory.ACTION_DELETE_HOST)(ActionArgument(null, None, None, None, None)) must throwA[IllegalArgumentException]
+      ActionFactory.get(ActionFactory.ACTION_DELETE_HOST)(ActionArgument("", None, None, None, None)) must throwA[IllegalArgumentException]
+      ActionFactory.get(ActionFactory.ACTION_CREATE_HOST)(ActionArgument(null, None, None, None, None)) must throwA[IllegalArgumentException]
+      ActionFactory.get(ActionFactory.ACTION_CREATE_HOST)(ActionArgument("", None, None, None, None)) must throwA[IllegalArgumentException]
+    }
 
+    "throw exception if none ip passed in when creating host" in {
+      ActionFactory.get(ActionFactory.ACTION_CREATE_HOST)(ActionArgument("host", None, None, None, None)) must throwA[IllegalArgumentException]
     }
 
     "get an instance of DeleteHostAction" in {
       val host = "host"
-      val action = ActionFactory.get(ActionFactory.ACTION_DELETE_HOST)(host, None, None, None, None)
+      val action = ActionFactory.get(ActionFactory.ACTION_DELETE_HOST)(ActionArgument(host, None, None, None, None))
       action must beSome
       action.get must beAnInstanceOf[DeleteHostAction]
       action.get.asInstanceOf[DeleteHostAction].server must_== host
@@ -38,7 +40,7 @@ class ActionFactoryTest extends Specification {
       val proxy = "proxy1"
       val metadata = """template("template learn java"), template(template linux), jmx_interface, group(perf linux) group(continous)"""
 
-      val action = ActionFactory.get(ActionFactory.ACTION_CREATE_HOST)(host, Some(ip), Some(port), Some(proxy), Some(metadata))
+      val action = ActionFactory.get(ActionFactory.ACTION_CREATE_HOST)(ActionArgument(host, Some(ip), Some(port), Some(proxy), Some(metadata)))
       action must beSome
       action.get must beAnInstanceOf[CreateHostAction]
       val server = action.get.asInstanceOf[CreateHostAction].server
@@ -55,7 +57,7 @@ class ActionFactoryTest extends Specification {
 
       server.interfaces must have size (2)
       server.interfaces must contain(Interface("1", ip, port))
-      server.interfaces must contain(Interface("4", ip, port))
+      server.interfaces must contain(Interface("4", ip, ConfigFactory.load().getString("zabbix.jmx.port")))
     }
 
     "throw exception when no group in metadata" in {
@@ -65,7 +67,7 @@ class ActionFactoryTest extends Specification {
       val proxy = "proxy1"
       val metadata = """template("template learn java"), template(template linux), jmx_interface"""
 
-      ActionFactory.get(ActionFactory.ACTION_CREATE_HOST)(host, Some(ip), Some(port), Some(proxy), Some(metadata)) must throwA[Exception]
+      ActionFactory.get(ActionFactory.ACTION_CREATE_HOST)(ActionArgument(host, Some(ip), Some(port), Some(proxy), Some(metadata))) must throwA[Exception]
     }
   }
 }

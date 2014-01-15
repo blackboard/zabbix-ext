@@ -17,7 +17,8 @@ libraryDependencies ++= Seq(
   "ch.qos.logback" % "logback-core" % "1.0.7",
   "com.typesafe.play" %% "play-json" % "2.2.1",
   "com.typesafe" % "config" % "1.0.2",
-  "com.typesafe" %% "scalalogging-slf4j" % "1.0.1"
+  "com.typesafe" %% "scalalogging-slf4j" % "1.0.1",
+  "commons-cli" % "commons-cli" % "1.2"
 )
 
 //tests
