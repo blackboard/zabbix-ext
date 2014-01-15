@@ -1,8 +1,9 @@
 package blackboard.monitoring.zabbix
 
 import org.apache.commons.cli.{ GnuParser, CommandLine }
+import com.typesafe.scalalogging.slf4j.Logging
 
-object ActionArgumentParser {
+object ActionArgumentParser extends Logging {
   private def OPTION_HOST = "host"
   private def OPTION_IP = "ip"
   private def OPTION_PORT = "port"
@@ -10,7 +11,7 @@ object ActionArgumentParser {
   private def OPTION_METADATA = "metadata"
   private def OPTION_ACTION = "action"
 
-  def parse(args: String*) = {
+  def parse(args: Seq[String]) = {
     val options = buildCmdOptions()
     val parser = new GnuParser();
     val line = parser.parse(options, args.toArray)

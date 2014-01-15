@@ -12,7 +12,9 @@ object ActionFactory extends Logging {
   private val PATTERN_GROUP = """group\(["']?([^)"']+)["']?\)""".r
   private val PATTERN_JMX = "jmx_interface"
     
-  private val jmxInterfacePort = ConfigFactory.load().getString("zabbix.jmx.port")
+  private val config = ConfigFactory.load()
+  private val jmxInterfacePort = config.getString("zabbix.jmx.port")
+  private val registrationGroup = config.getString("zabbix.registration.group")
 
   def get(arg: ActionArgument) = {
     checkNotEmpty(arg.action, "action must be a none empty value")
@@ -32,10 +34,12 @@ object ActionFactory extends Logging {
     arg.metadata match {
       case Some(data) => {
         val templates = PATTERN_TEMPLATE.findAllIn(data).matchData.map(_.subgroups(0)).toSet
-        val groups = PATTERN_GROUP.findAllIn(data).matchData.map(_.subgroups(0)).toSet
+        var groups = PATTERN_GROUP.findAllIn(data).matchData.map(_.subgroups(0)).toSet
 
-        if (groups.size == 0)
-          throw new Exception("None group assigned, you must assign at least one group for the host")
+        if (groups.size == 0) {
+          logger.warn("No group assigned for the host ${arg.host}, assign it to default group")
+          groups += registrationGroup
+        }
 
         var interfaces = Set(Interface("1", arg.ip.get, arg.port.get))
         if (data.contains(PATTERN_JMX)) {
@@ -68,7 +72,10 @@ case class CreateHostAction(server: Host) extends Action with ZabbixRpcApi {
     if (groups.size == 0)
       throw new Exception("No group found on zabbix server, at must one valited group needed")
     val templates = server.templates map { getTemplateIdByName(_) } collect { case Some(id) => s"""{"templateid": "${id}"}""" }
-    val proxyId = getProxyIdByName(server.proxyName.get)
+    val proxyId = server.proxyName match {
+      case Some(proxyName) => getProxyIdByName(proxyName)
+      case None => None
+    }
     val interfaces = server.interfaces map {
       interface =>
         s"""{

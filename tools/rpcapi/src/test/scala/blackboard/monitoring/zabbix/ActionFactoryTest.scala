@@ -60,14 +60,19 @@ class ActionFactoryTest extends Specification {
       server.interfaces must contain(Interface("4", ip, ConfigFactory.load().getString("zabbix.jmx.port")))
     }
 
-    "throw exception when no group in metadata" in {
+    "use default registration group when no group in metadata" in {
       val host = "host"
       val ip = "9.9.9.9"
       val port = "15000"
       val proxy = "proxy1"
       val metadata = """template("template learn java"), template(template linux), jmx_interface"""
 
-      ActionFactory.get(ActionArgument(ActionFactory.ACTION_CREATE_HOST, host, Some(ip), Some(port), Some(proxy), Some(metadata))) must throwA[Exception]
+      val action = ActionFactory.get(ActionArgument(ActionFactory.ACTION_CREATE_HOST, host, Some(ip), Some(port), Some(proxy), Some(metadata)))
+      action must beSome
+      action.get must beAnInstanceOf[CreateHostAction]
+      val server = action.get.asInstanceOf[CreateHostAction].server
+      server.groups must have size(1)
+      server.groups must contain(ConfigFactory.load().getString("zabbix.registration.group"))
     }
   }
 }
