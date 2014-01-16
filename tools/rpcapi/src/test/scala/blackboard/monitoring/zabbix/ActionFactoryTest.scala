@@ -38,7 +38,7 @@ class ActionFactoryTest extends Specification {
       val ip = "9.9.9.9"
       val port = "15000"
       val proxy = "proxy1"
-      val metadata = """template("template learn java"), template(template linux), jmx_interface, group(perf linux) group(continous)"""
+      val metadata = """template("template learn java"), template(template linux), jmx_interface(7777), group(perf linux) group(continous)"""
 
       val action = ActionFactory.get(ActionArgument(ActionFactory.ACTION_CREATE_HOST, host, Some(ip), Some(port), Some(proxy), Some(metadata)))
       action must beSome
@@ -57,7 +57,7 @@ class ActionFactoryTest extends Specification {
 
       server.interfaces must have size (2)
       server.interfaces must contain(Interface("1", ip, port))
-      server.interfaces must contain(Interface("4", ip, ConfigFactory.load().getString("zabbix.jmx.port")))
+      server.interfaces must contain(Interface("4", ip, "7777"))
     }
 
     "use default registration group when no group in metadata" in {

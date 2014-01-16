@@ -5,8 +5,7 @@ zabbix.password = "changeme"
 # zabbix RPC API url
 zabbix.rpcapi = "http://zabbix.pd.local/api_jsonrpc.php"
 
-# JMX interface port for the hosts needing jmx interface
-zabbix.jmx.port=8899
 
-# The group here must be created before running the action
+# The group here must be created before running the action, it's used when there is no group 
+# assigned for the host
 zabbix.registration.group="auto-registration"

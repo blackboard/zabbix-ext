@@ -10,10 +10,9 @@ object ActionFactory extends Logging {
 
   private val PATTERN_TEMPLATE = """template\(["']?([^)"']+)["']?\)""".r
   private val PATTERN_GROUP = """group\(["']?([^)"']+)["']?\)""".r
-  private val PATTERN_JMX = "jmx_interface"
+  private val PATTERN_JMX = """jmx_interface\(["']?([^)"']+)["']?\)""".r
     
   private val config = ConfigFactory.load()
-  private val jmxInterfacePort = config.getString("zabbix.jmx.port")
   private val registrationGroup = config.getString("zabbix.registration.group")
 
   def get(arg: ActionArgument) = {
@@ -35,6 +34,7 @@ object ActionFactory extends Logging {
       case Some(data) => {
         val templates = PATTERN_TEMPLATE.findAllIn(data).matchData.map(_.subgroups(0)).toSet
         var groups = PATTERN_GROUP.findAllIn(data).matchData.map(_.subgroups(0)).toSet
+        val jmx_interface = PATTERN_JMX.findAllIn(data).matchData.map(_.subgroups(0))
 
         if (groups.size == 0) {
           logger.warn("No group assigned for the host ${arg.host}, assign it to default group")
@@ -42,8 +42,8 @@ object ActionFactory extends Logging {
         }
 
         var interfaces = Set(Interface("1", arg.ip.get, arg.port.get))
-        if (data.contains(PATTERN_JMX)) {
-          interfaces += Interface("4", arg.ip.get, jmxInterfacePort)
+        if (!jmx_interface.isEmpty) {
+          interfaces += Interface("4", arg.ip.get, jmx_interface.next)
         }
         Some(CreateHostAction(Host(arg.host, arg.proxy, templates, groups, interfaces)))
       }
