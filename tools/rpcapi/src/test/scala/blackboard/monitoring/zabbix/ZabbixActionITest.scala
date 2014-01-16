@@ -36,7 +36,7 @@ class ZabbixActionITest extends ZabbixTest {
 
     "create host with 1 group, 2 template, 2 interfaces" in {
       val cha = ActionFactory.get(ActionArgument(ActionFactory.ACTION_CREATE_HOST, hostname, Some(hostip),
-        Some(port), Some(testProxy), Some(s"group(${testGroup}), template(${testJmxTemplate}), template(${testAgentTemplate}), jmx_interface")))
+        Some(port), Some(testProxy), Some(s"group(${testGroup}), template(${testJmxTemplate}), template(${testAgentTemplate}), jmx_interface(7777)")))
       cha must beSome
       cha.get.execute()
 
