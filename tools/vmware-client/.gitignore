@@ -1,0 +1,8 @@
+# Ignore all dotfiles...
+.*
+# except for .gitignore
+!.gitignore
+target
+project/project
+project/target
+base.dir_IS_UNDEFINED
