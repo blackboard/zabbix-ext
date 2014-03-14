@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2013-03-06T06:18:51Z</date>
+    <date>2014-03-14T05:26:27Z</date>
     <groups>
         <group>
             <name>Templates Blackboard Learn</name>
@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>Template Learn Tomcat</template>
-            <name>Template Learn Tomcat</name>
+            <template>Template Learn Tomcat SP13 and Below</template>
+            <name>Template Learn Tomcat SP13 and Below</name>
             <groups>
                 <group>
                     <name>Templates Blackboard Learn</name>
@@ -26,7 +26,7 @@
             </applications>
             <items>
                 <item>
-                    <name>Tomcat: Avg Processing Time</name>
+                    <name>Tomcat: Avg Processing Time on Port 8009</name>
                     <type>15</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -40,9 +40,12 @@
                     <allowed_hosts/>
                     <units>ms</units>
                     <delta>0</delta>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -79,9 +82,12 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -118,9 +124,12 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -157,9 +166,12 @@
                     <allowed_hosts/>
                     <units/>
                     <delta>0</delta>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -182,7 +194,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Tomcat: Request Errors</name>
+                    <name>Tomcat: Request Errors on Port 8009</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -196,9 +208,12 @@
                     <allowed_hosts/>
                     <units>/Min</units>
                     <delta>2</delta>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -221,7 +236,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Tomcat: Request Processing Time</name>
+                    <name>Tomcat: Request Processing Time on Port 8009</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -235,9 +250,12 @@
                     <allowed_hosts/>
                     <units>ms</units>
                     <delta>2</delta>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -260,7 +278,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Tomcat: Requests</name>
+                    <name>Tomcat: Requests on Port 8009</name>
                     <type>16</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -274,9 +292,12 @@
                     <allowed_hosts/>
                     <units>/Min</units>
                     <delta>2</delta>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
@@ -321,7 +342,7 @@
                             <resourcetype>0</resourcetype>
                             <width>500</width>
                             <height>100</height>
-                            <x>0</x>
+                            <x>1</x>
                             <y>0</y>
                             <colspan>1</colspan>
                             <rowspan>1</rowspan>
@@ -333,9 +354,10 @@
                             <dynamic>0</dynamic>
                             <sort_triggers>0</sort_triggers>
                             <resource>
-                                <name>Tomcat - Requests per Min</name>
-                                <host>Template Learn Tomcat</host>
+                                <name>Tomcat - Requests / Min on 8009</name>
+                                <host>Template Learn Tomcat SP13 and Below</host>
                             </resource>
+                            <application/>
                         </screen_item>
                         <screen_item>
                             <resourcetype>0</resourcetype>
@@ -353,15 +375,16 @@
                             <dynamic>0</dynamic>
                             <sort_triggers>0</sort_triggers>
                             <resource>
-                                <name>Tomcat - Threadpool Usage on Port 8009</name>
-                                <host>Template Learn Tomcat</host>
+                                <name>Tomcat - Threadpool Usage on 8009</name>
+                                <host>Template Learn Tomcat SP13 and Below</host>
                             </resource>
+                            <application/>
                         </screen_item>
                         <screen_item>
                             <resourcetype>0</resourcetype>
                             <width>500</width>
                             <height>100</height>
-                            <x>1</x>
+                            <x>0</x>
                             <y>0</y>
                             <colspan>1</colspan>
                             <rowspan>1</rowspan>
@@ -373,9 +396,10 @@
                             <dynamic>0</dynamic>
                             <sort_triggers>0</sort_triggers>
                             <resource>
-                                <name>Tomcat - Average Processing Time per Min</name>
-                                <host>Template Learn Tomcat</host>
+                                <name>Tomcat - Avg Processing Time / Min on 8009</name>
+                                <host>Template Learn Tomcat SP13 and Below</host>
                             </resource>
+                            <application/>
                         </screen_item>
                     </screen_items>
                 </screen>
@@ -384,7 +408,7 @@
     </templates>
     <graphs>
         <graph>
-            <name>Tomcat - Average Processing Time per Min</name>
+            <name>Tomcat - Avg Processing Time / Min on 8009</name>
             <width>900</width>
             <height>200</height>
             <yaxismin>0</yaxismin>
@@ -409,14 +433,14 @@
                     <calc_fnc>7</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Learn Tomcat</host>
+                        <host>Template Learn Tomcat SP13 and Below</host>
                         <key>Tomcat_Avg_Processing_Time</key>
                     </item>
                 </graph_item>
             </graph_items>
         </graph>
         <graph>
-            <name>Tomcat - Requests per Min</name>
+            <name>Tomcat - Requests / Min on 8009</name>
             <width>900</width>
             <height>200</height>
             <yaxismin>0</yaxismin>
@@ -441,7 +465,7 @@
                     <calc_fnc>7</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Learn Tomcat</host>
+                        <host>Template Learn Tomcat SP13 and Below</host>
                         <key>jmx[&quot;Catalina:type=GlobalRequestProcessor,name=jk-8009&quot;,&quot;requestCount&quot;]</key>
                     </item>
                 </graph_item>
@@ -453,14 +477,14 @@
                     <calc_fnc>7</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Learn Tomcat</host>
+                        <host>Template Learn Tomcat SP13 and Below</host>
                         <key>jmx[&quot;Catalina:type=GlobalRequestProcessor,name=jk-8009&quot;,&quot;errorCount&quot;]</key>
                     </item>
                 </graph_item>
             </graph_items>
         </graph>
         <graph>
-            <name>Tomcat - Threadpool Usage on Port 8009</name>
+            <name>Tomcat - Threadpool Usage on 8009</name>
             <width>900</width>
             <height>200</height>
             <yaxismin>0</yaxismin>
@@ -476,10 +500,22 @@
             <ymax_type_1>0</ymax_type_1>
             <ymin_item_1>0</ymin_item_1>
             <ymax_item_1>
-                <host>Template Learn Tomcat</host>
+                <host>Template Learn Tomcat SP13 and Below</host>
                 <key>jmx[&quot;Catalina:type=ThreadPool,name=jk-8009&quot;,&quot;maxThreads&quot;]</key>
             </ymax_item_1>
             <graph_items>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>EE0000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>7</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template Learn Tomcat SP13 and Below</host>
+                        <key>jmx[&quot;Catalina:type=ThreadPool,name=jk-8009&quot;,&quot;currentThreadsBusy&quot;]</key>
+                    </item>
+                </graph_item>
                 <graph_item>
                     <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
@@ -488,7 +524,7 @@
                     <calc_fnc>7</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Learn Tomcat</host>
+                        <host>Template Learn Tomcat SP13 and Below</host>
                         <key>jmx[&quot;Catalina:type=ThreadPool,name=jk-8009&quot;,&quot;currentThreadCount&quot;]</key>
                     </item>
                 </graph_item>
@@ -500,20 +536,8 @@
                     <calc_fnc>7</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Learn Tomcat</host>
+                        <host>Template Learn Tomcat SP13 and Below</host>
                         <key>jmx[&quot;Catalina:type=ThreadPool,name=jk-8009&quot;,&quot;maxThreads&quot;]</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>2</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>EE0000</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>7</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template Learn Tomcat</host>
-                        <key>jmx[&quot;Catalina:type=ThreadPool,name=jk-8009&quot;,&quot;currentThreadsBusy&quot;]</key>
                     </item>
                 </graph_item>
             </graph_items>
