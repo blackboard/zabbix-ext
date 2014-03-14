@@ -13,10 +13,10 @@ Zabbix Extended
 * [Zabbix](http://www.zabbix.com/) deployment tools:
   * Single agent deployment script
   * Bulk agent deployment script
-* Elasticity tools:
+* [Zabbix](http://www.zabbix.com/) elasticity tools:
   * Configuration of host groups, templates, and JMX interface in Zabbix agent config file
   * Auto deletion of hosts from Zabbix based on Zabbix agent visibilty thresholds
-* Scalability tools:
+* [Zabbix](http://www.zabbix.com/) scalability tools:
   * Database partitioning script to replace housekeeping task by dropping partitions instead of running housekeeper's delete operations for purging data
 
 ## Requirements
