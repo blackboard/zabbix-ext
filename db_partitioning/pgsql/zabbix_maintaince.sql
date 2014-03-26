@@ -594,7 +594,7 @@ BEGIN
       FOR r_column IN ( SELECT column_name FROM information_schema.columns WHERE table_name = v_table_name )
       LOOP
         v_column_name := ', ' || r_column.column_name || v_column_name;
-        v_new_column_name := ', NEW.' || r_column.column_name || v_new_column_name;
+        v_new_column_name := '|| '','' ||  NEW.' || r_column.column_name || v_new_column_name;
       END LOOP;
        
       v_sql := ' CREATE OR REPLACE FUNCTION ' || p_table_name || '_insert_trigger() '|| c_crlf
@@ -602,9 +602,9 @@ BEGIN
             || ' DECLARE ' || c_crlf
             || '   insert_sql TEXT; ' || c_crlf
             || ' BEGIN ' || c_crlf
-	          || '   insert_sql:= ''INSERT INTO ' || p_table_name || '_m''' || ' || to_char(to_timestamp(NEW.' || v_partition_key || '),''yyyymm'') || ''' || c_crlf
-	          || '               (' || substr( v_column_name, 2 ) || ') VALUES ' || c_crlf
-	          || '               (' || substr( v_new_column_name, 2 ) || ')''; ' || c_crlf
+	    || '   insert_sql:= ''INSERT INTO ' || p_table_name || '_m''' || ' || to_char(to_timestamp(NEW.' || v_partition_key || '),''yyyymm'') || ''' || c_crlf
+	    || '               (' || substr( v_column_name, 2 ) || ') VALUES ' || c_crlf
+	    || '               ('' || ' || substr( v_new_column_name, 11 ) || ' || '')''; ' || c_crlf
             || ' 	 EXECUTE insert_sql; ' || c_crlf
             || ' 	 RETURN NULL; ' || c_crlf
             || ' END ' || c_crlf
