@@ -21,7 +21,21 @@ Zabbix Extended
 
 ## Requirements
 * Zabbix 2.2 and up
-* monitor-bridge for custom templates (does not apply to Blackboard Learn template) - will be available in this repo soon
+* [monitor-bridge](https://github.com/blackboard/monitor-bridge) for ElasticSearch, MongoDB, PostgreSQL, Redis, and Oracle Database templates.
 
 ## HOWTOs
-Coming soon!
+### Blackboard Learn Template
+1. Deploy bb-extended-monitoring B2 on your Blackboard Learn instance located in templates/blackboard-learn/b2 folder
+2. Import templates in templates/blackboard_learn to your Zabbix instance
+3. Link the templates to the Blackboard Learn hosts in Zabbix
+
+### ElasticSearch, MongoDB, PostgreSQL, Redis, Oracle Database
+1. Deploy [monitor-bridge](https://github.com/blackboard/monitor-bridge)
+2. Import templates/zbx_templates_extended.xml in Zabbix
+3. In Zabbix, configure the JMX interface to point to [monitor-bridge](https://github.com/blackboard/monitor-bridge)
+4. Link the templates
+
+### Cassandra
+1. Import templates/zbx_templates_extended.xml in Zabbix
+2. Verify the JMX interface on your monitored host in Zabbix
+3. Link the template to the monitored hosts
