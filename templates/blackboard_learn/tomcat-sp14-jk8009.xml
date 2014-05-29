@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2014-03-14T05:26:27Z</date>
+    <date>2014-03-14T05:26:52Z</date>
     <groups>
         <group>
             <name>Templates Blackboard Learn</name>
@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>Template Learn Tomcat SP13 and Below</template>
-            <name>Template Learn Tomcat SP13 and Below</name>
+            <template>Template Learn Tomcat SP14 - JK 8009</template>
+            <name>Template Learn Tomcat SP14 - JK 8009</name>
             <groups>
                 <group>
                     <name>Templates Blackboard Learn</name>
@@ -49,7 +49,7 @@
                     <snmpv3_privpassphrase/>
                     <formula>1</formula>
                     <delay_flex/>
-                    <params>sum(&quot;jmx[\&quot;Catalina:type=GlobalRequestProcessor,name=jk-8009\&quot;,\&quot;processingTime\&quot;]&quot;,300)/(sum(&quot;jmx[\&quot;Catalina:type=GlobalRequestProcessor,name=jk-8009\&quot;,\&quot;requestCount\&quot;]&quot;,300)+0.001)</params>
+                    <params>sum(&quot;jmx[\&quot;Catalina:type=GlobalRequestProcessor,name=ajp-bio-8009\&quot;,\&quot;processingTime\&quot;]&quot;,300)/(sum(&quot;jmx[\&quot;Catalina:type=GlobalRequestProcessor,name=ajp-bio-8009\&quot;,\&quot;requestCount\&quot;]&quot;,300)+0.001)</params>
                     <ipmi_sensor/>
                     <data_type>0</data_type>
                     <authtype>0</authtype>
@@ -73,7 +73,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>jmx[&quot;Catalina:type=ThreadPool,name=jk-8009&quot;,&quot;currentThreadsBusy&quot;]</key>
+                    <key>jmx[&quot;Catalina:type=ThreadPool,name=ajp-bio-8009&quot;,&quot;currentThreadsBusy&quot;]</key>
                     <delay>30</delay>
                     <history>7</history>
                     <trends>180</trends>
@@ -115,7 +115,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>jmx[&quot;Catalina:type=ThreadPool,name=jk-8009&quot;,&quot;currentThreadCount&quot;]</key>
+                    <key>jmx[&quot;Catalina:type=ThreadPool,name=ajp-bio-8009&quot;,&quot;currentThreadCount&quot;]</key>
                     <delay>30</delay>
                     <history>7</history>
                     <trends>180</trends>
@@ -157,7 +157,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>jmx[&quot;Catalina:type=ThreadPool,name=jk-8009&quot;,&quot;maxThreads&quot;]</key>
+                    <key>jmx[&quot;Catalina:type=ThreadPool,name=ajp-bio-8009&quot;,&quot;maxThreads&quot;]</key>
                     <delay>30</delay>
                     <history>7</history>
                     <trends>180</trends>
@@ -199,7 +199,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>jmx[&quot;Catalina:type=GlobalRequestProcessor,name=jk-8009&quot;,&quot;errorCount&quot;]</key>
+                    <key>jmx[&quot;Catalina:type=GlobalRequestProcessor,name=ajp-bio-8009&quot;,&quot;errorCount&quot;]</key>
                     <delay>60</delay>
                     <history>7</history>
                     <trends>180</trends>
@@ -241,7 +241,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>jmx[&quot;Catalina:type=GlobalRequestProcessor,name=jk-8009&quot;,&quot;processingTime&quot;]</key>
+                    <key>jmx[&quot;Catalina:type=GlobalRequestProcessor,name=ajp-bio-8009&quot;,&quot;processingTime&quot;]</key>
                     <delay>60</delay>
                     <history>7</history>
                     <trends>180</trends>
@@ -283,7 +283,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>jmx[&quot;Catalina:type=GlobalRequestProcessor,name=jk-8009&quot;,&quot;requestCount&quot;]</key>
+                    <key>jmx[&quot;Catalina:type=GlobalRequestProcessor,name=ajp-bio-8009&quot;,&quot;requestCount&quot;]</key>
                     <delay>60</delay>
                     <history>7</history>
                     <trends>180</trends>
@@ -355,7 +355,7 @@
                             <sort_triggers>0</sort_triggers>
                             <resource>
                                 <name>Tomcat - Requests / Min on 8009</name>
-                                <host>Template Learn Tomcat SP13 and Below</host>
+                                <host>Template Learn Tomcat SP14 - JK 8009</host>
                             </resource>
                             <application/>
                         </screen_item>
@@ -376,7 +376,7 @@
                             <sort_triggers>0</sort_triggers>
                             <resource>
                                 <name>Tomcat - Threadpool Usage on 8009</name>
-                                <host>Template Learn Tomcat SP13 and Below</host>
+                                <host>Template Learn Tomcat SP14 - JK 8009</host>
                             </resource>
                             <application/>
                         </screen_item>
@@ -397,7 +397,7 @@
                             <sort_triggers>0</sort_triggers>
                             <resource>
                                 <name>Tomcat - Avg Processing Time / Min on 8009</name>
-                                <host>Template Learn Tomcat SP13 and Below</host>
+                                <host>Template Learn Tomcat SP14 - JK 8009</host>
                             </resource>
                             <application/>
                         </screen_item>
@@ -433,7 +433,7 @@
                     <calc_fnc>7</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Learn Tomcat SP13 and Below</host>
+                        <host>Template Learn Tomcat SP14 - JK 8009</host>
                         <key>Tomcat_Avg_Processing_Time</key>
                     </item>
                 </graph_item>
@@ -465,8 +465,8 @@
                     <calc_fnc>7</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Learn Tomcat SP13 and Below</host>
-                        <key>jmx[&quot;Catalina:type=GlobalRequestProcessor,name=jk-8009&quot;,&quot;requestCount&quot;]</key>
+                        <host>Template Learn Tomcat SP14 - JK 8009</host>
+                        <key>jmx[&quot;Catalina:type=GlobalRequestProcessor,name=ajp-bio-8009&quot;,&quot;requestCount&quot;]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -477,8 +477,8 @@
                     <calc_fnc>7</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Learn Tomcat SP13 and Below</host>
-                        <key>jmx[&quot;Catalina:type=GlobalRequestProcessor,name=jk-8009&quot;,&quot;errorCount&quot;]</key>
+                        <host>Template Learn Tomcat SP14 - JK 8009</host>
+                        <key>jmx[&quot;Catalina:type=GlobalRequestProcessor,name=ajp-bio-8009&quot;,&quot;errorCount&quot;]</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -500,22 +500,10 @@
             <ymax_type_1>0</ymax_type_1>
             <ymin_item_1>0</ymin_item_1>
             <ymax_item_1>
-                <host>Template Learn Tomcat SP13 and Below</host>
-                <key>jmx[&quot;Catalina:type=ThreadPool,name=jk-8009&quot;,&quot;maxThreads&quot;]</key>
+                <host>Template Learn Tomcat SP14 - JK 8009</host>
+                <key>jmx[&quot;Catalina:type=ThreadPool,name=ajp-bio-8009&quot;,&quot;maxThreads&quot;]</key>
             </ymax_item_1>
             <graph_items>
-                <graph_item>
-                    <sortorder>2</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>EE0000</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>7</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template Learn Tomcat SP13 and Below</host>
-                        <key>jmx[&quot;Catalina:type=ThreadPool,name=jk-8009&quot;,&quot;currentThreadsBusy&quot;]</key>
-                    </item>
-                </graph_item>
                 <graph_item>
                     <sortorder>1</sortorder>
                     <drawtype>0</drawtype>
@@ -524,8 +512,20 @@
                     <calc_fnc>7</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Learn Tomcat SP13 and Below</host>
-                        <key>jmx[&quot;Catalina:type=ThreadPool,name=jk-8009&quot;,&quot;currentThreadCount&quot;]</key>
+                        <host>Template Learn Tomcat SP14 - JK 8009</host>
+                        <key>jmx[&quot;Catalina:type=ThreadPool,name=ajp-bio-8009&quot;,&quot;currentThreadCount&quot;]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>EE0000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>7</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template Learn Tomcat SP14 - JK 8009</host>
+                        <key>jmx[&quot;Catalina:type=ThreadPool,name=ajp-bio-8009&quot;,&quot;currentThreadsBusy&quot;]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -536,8 +536,8 @@
                     <calc_fnc>7</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>Template Learn Tomcat SP13 and Below</host>
-                        <key>jmx[&quot;Catalina:type=ThreadPool,name=jk-8009&quot;,&quot;maxThreads&quot;]</key>
+                        <host>Template Learn Tomcat SP14 - JK 8009</host>
+                        <key>jmx[&quot;Catalina:type=ThreadPool,name=ajp-bio-8009&quot;,&quot;maxThreads&quot;]</key>
                     </item>
                 </graph_item>
             </graph_items>
